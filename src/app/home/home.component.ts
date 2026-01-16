@@ -9,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  ngAfterViewInit(): void {
+    // força o Instagram a processar os embeds
+    if ((window as any).instgrm) {
+      (window as any).instgrm.Embeds.process();
+    }
+  }
 }
