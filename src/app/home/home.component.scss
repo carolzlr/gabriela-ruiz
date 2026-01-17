@@ -4,12 +4,12 @@
 */
 
 :root {
-  --roxo: #633d4e; /* Exemplo de valor, ajuste conforme seu projeto */
-  --rosa-1: #f7f1ef;
-  --rosa-2: #e6d7dd;
-  --texto-principal: #333333;
-  --texto-secundario: #555555;
-  --linha-divisoria: #ddd;
+  --roxo: #8a506d;
+  --rosa-1: #f4edec;
+  --rosa-2: #b67a90;
+  --texto-principal: #3a2a33;
+  --texto-secundario: #5a4a52;
+  --linha-divisoria: #e6dcdc;
 }
 
 /* RESET / BASE */
@@ -19,11 +19,19 @@
   padding: 0;
 }
 
+
+
 body {
   font-family: 'Montserrat', sans-serif;
   color: var(--texto-principal);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* SEÇÕES GERAIS */
+section {
+  padding: 80px 20px; /* Padding reduzido para mais espaço lateral */
 }
 
 /* TIPOGRAFIA GLOBAL PADRONIZADA */
@@ -260,4 +268,36 @@ section {
   .services-grid, .posts-grid { grid-template-columns: 1fr; }
   .hero-img { width: 100%; max-width: 300px; }
   .about-cards { flex-direction: column; }
+}
+
+/* --- Seção Conhecimento em Foco (Posts) --- */
+
+.posts {
+  background: #ffffff;
+
+  // Container que envolve o Título e o Botão
+  .posts-header {
+    max-width: 1200px;
+    margin: 0 auto 40px; // Centraliza o bloco e dá margem abaixo
+
+    display: flex;             // Ativa o layout flexível
+    justify-content: space-between; // Empurra o título para a esquerda e o botão para a direita
+    align-items: center;       // Alinha verticalmente o centro deles
+  }
+
+  .posts-title {
+    margin-bottom: 0; // Removemos a margem de baixo para não desalinharem verticalmente
+  }
+}
+
+/* --- Ajuste Responsivo (dentro da tua Media Query existente) --- */
+
+@media (max-width: 900px) {
+  // ... teus outros códigos ...
+
+  .posts-header {
+    flex-direction: column; // Empilha título e botão no telemóvel
+    gap: 20px;              // Cria um espaço entre eles quando empilhados
+    text-align: center;
+  }
 }
