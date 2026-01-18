@@ -434,3 +434,124 @@ html {
     height: 34px;
   }
 }
+
+/* SEÇÃO TRAJETÓRIA ACADÊMICA */
+.academic-path {
+  background: var(--rosa-1);
+  padding: 100px 40px;
+
+  .academic-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .academic-header {
+    margin-bottom: 60px;
+    text-align: center;
+  }
+
+  .academic-title {
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+
+  .academic-subtitle {
+    font-style: italic;
+    color: var(--roxo);
+  }
+
+  /* Timeline */
+  .timeline-wrapper {
+    position: relative;
+    padding: 40px 0;
+    margin-bottom: 60px;
+
+    .timeline-line {
+      position: absolute;
+      top: 48px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--linha-divisoria);
+      z-index: 1;
+    }
+
+    .timeline-items {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      z-index: 2;
+    }
+
+    .timeline-item {
+      flex: 1;
+      text-align: center;
+      padding: 0 20px;
+
+      .timeline-dot {
+        width: 16px;
+        height: 16px;
+        background: var(--roxo);
+        border: 4px solid #fff;
+        border-radius: 50%;
+        margin: 0 auto 20px;
+        box-shadow: 0 0 0 1px var(--roxo);
+      }
+
+      .timeline-year {
+        display: block;
+        font-weight: 700;
+        color: var(--roxo);
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+
+      h4 { font-size: 17px; margin-bottom: 5px; }
+      p { font-size: 14px; line-height: 1.4; }
+    }
+  }
+
+  /* Destaques Extras */
+  .academic-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+
+    .highlight-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 24px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      transition: transform 0.3s;
+
+      &:hover { transform: translateY(-5px); }
+
+      .highlight-icon { font-size: 24px; display: block; margin-bottom: 15px; }
+      h4 { margin-bottom: 10px; font-size: 18px; }
+      p { font-size: 14px; margin: 0; }
+    }
+  }
+}
+
+/* RESPONSIVIDADE PARA TRAJETÓRIA */
+@media (max-width: 900px) {
+  .academic-path {
+    padding: 60px 20px;
+
+    .timeline-line { display: none; }
+    .timeline-items {
+      flex-direction: column;
+      gap: 40px;
+      border-left: 2px solid var(--linha-divisoria);
+      padding-left: 30px;
+    }
+    .timeline-item {
+      text-align: left;
+      padding: 0;
+      .timeline-dot { margin: 0; position: absolute; left: -39px; top: 5px; }
+    }
+    .academic-highlights { grid-template-columns: 1fr; }
+  }
+}
