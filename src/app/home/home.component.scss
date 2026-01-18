@@ -19,8 +19,6 @@
   padding: 0;
 }
 
-
-
 body {
   font-family: 'Montserrat', sans-serif;
   color: var(--texto-principal);
@@ -31,7 +29,7 @@ body {
 
 /* SEÇÕES GERAIS */
 section {
-  padding: 80px 20px; /* Padding reduzido para mais espaço lateral */
+  padding: 80px 0px; /* Padding reduzido para mais espaço lateral */
 }
 
 /* TIPOGRAFIA GLOBAL PADRONIZADA */
@@ -58,7 +56,6 @@ p {
 .hero {
   background: var(--rosa-1);
   padding: 100px 40px;
-  padding-top: 140px;
 }
 
 .hero-content {
@@ -99,10 +96,6 @@ p {
 }
 
 /* SEÇÕES GERAIS */
-section {
-  padding: 100px 40px;
-}
-
 .about-title, .areas-title, .posts-title, .contact-title {
   font-size: 40px;
   margin-bottom: 32px;
@@ -276,7 +269,6 @@ section {
 .posts {
   background: #ffffff;
 
-
   .posts-header {
     max-width: 1200px;
     margin: 0 auto 40px;
@@ -424,7 +416,7 @@ html {
 }
 
 .brand-logo {
-  height: 100px;
+  height: 70px;
   width: auto;
   display: block;
 }
