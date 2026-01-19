@@ -7,6 +7,7 @@
   --roxo: #8a506d;
   --rosa-1: #f4edec;
   --rosa-2: #b67a90;
+  --branco: #ffffff;
   --texto-principal: #3a2a33;
   --texto-secundario: #5a4a52;
   --linha-divisoria: #e6dcdc;
@@ -25,11 +26,13 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  padding-top: 72px;
 }
 
 /* SEÇÕES GERAIS */
 section {
   padding: 80px 0px; /* Padding reduzido para mais espaço lateral */
+  scroll-margin-top: 72px;
 }
 
 /* TIPOGRAFIA GLOBAL PADRONIZADA */
@@ -102,7 +105,7 @@ p {
 }
 
 /* SOBRE */
-.about { background: #ffffff; }
+.about { background: var(--branco); }
 
 .about-content {
   max-width: 1200px;
@@ -143,7 +146,7 @@ p {
 }
 
 /* AREAS DE ATUACAO */
-.areas { background: var(--rosa-1); }
+.areas { background: var(--branco); }
 
 .areas-header {
   max-width: 1200px;
@@ -179,7 +182,7 @@ p {
 }
 
 /* POSTS */
-.posts { background: #ffffff; }
+.posts { background: var(--rosa-1); }
 
 .posts-grid {
   max-width: 1200px;
@@ -213,7 +216,7 @@ p {
 }
 
 /* CONTATO */
-.contact-end { background: var(--rosa-1); }
+.contact-end { background: var(--branco); }
 
 .contact-end-content {
   max-width: 1200px;
@@ -267,7 +270,7 @@ p {
 /* --- Seção Conhecimento em Foco (Posts) --- */
 
 .posts {
-  background: #ffffff;
+  background: var(--rosa-1);
 
   .posts-header {
     max-width: 1200px;
@@ -531,6 +534,7 @@ html {
       .highlight-icon { font-size: 24px; display: block; margin-bottom: 15px; }
       h4 { margin-bottom: 10px; font-size: 18px; }
       p { font-size: 14px; margin: 0; }
+      color: var(--roxo);
     }
   }
 }
@@ -554,4 +558,21 @@ html {
     }
     .academic-highlights { grid-template-columns: 1fr; }
   }
+}
+
+/*FOOTER*/
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+footer p,
+footer a {
+  margin: 0;
+  font-size: 11px;
+  color: var(--texto-secundario);
+  opacity: 0.6;
+  white-space: nowrap;
 }
