@@ -58,45 +58,94 @@ p {
 
 /* HERO */
 .hero {
-  background: var(--rosa-1);
-  padding: 100px 40px;
-}
-
-.hero-content {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.hero-flex {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
   display: flex;
   align-items: center;
-  gap: 60px;
-}
-
-.hero-img {
-  width: 400px;
-  height: auto;
-  border-radius: 8px;
-}
-
-.hero-kicker {
-  display: block;
-  font-size: 13px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-weight: 600;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  background-color: var(--rosa-1);
   color: var(--roxo);
-  margin-bottom: 16px;
-}
 
-.hero-text-block h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-}
+  /*
+  background-image: url('/images/fundo.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  */
 
-.hero-text {
-  font-size: 18px;
-  margin-bottom: 32px;
+  /*
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 1;
+    display: none;
+  }
+  */
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+  }
+
+  .hero-kicker {
+    font-size: 42px;
+    font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-size: 22px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: var(--roxo);
+    margin-bottom: 30px;
+  }
+
+  .hero-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--roxo);
+    margin: 30px 0;
+  }
+
+  .hero-phrase {
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: 40px;
+    color:var(--roxo);
+  }
+
+  .btn-hero-outline {
+    display: inline-block;
+    padding: 12px 40px;
+    border: 2px solid var(--roxo);
+    border-radius: 50px;
+    color: var(--roxo);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: var(--roxo);
+      color: #000;
+    }
+  }
 }
 
 /* SEÇÕES GERAIS */
