@@ -368,7 +368,6 @@ p {
   margin-bottom: 32px;
 }
 
-/* SOBRE */
 .about {
   background-color: var(--branco);
   padding: 120px 20px;
@@ -381,6 +380,7 @@ p {
     gap: 80px;
   }
 
+  /* Foto */
   .about-photo-wrapper {
     flex: 1;
     .about-img {
@@ -394,6 +394,7 @@ p {
     }
   }
 
+  /* Informações Coluna Direita */
   .about-info {
     flex: 1.2;
 
@@ -415,41 +416,85 @@ p {
       line-height: 1.1;
     }
 
+    /* Credenciais (CRM/RQE) */
     .about-credentials {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 15px;
       margin-bottom: 35px;
       color: var(--roxo);
 
       .material-symbols-outlined {
         font-size: 32px;
-        display: block;
+        margin-top: 4px;
       }
 
-      p {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 18px;
-        font-weight: 600;
-        margin: 0;
-        line-height: 1;
+      .credentials-text {
+        display: flex;
+        flex-direction: column; // Sempre em duas linhas como você pediu
+        gap: 4px;
+
+        .role {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 20px;
+          font-weight: 600;
+        }
+
+        .docs {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 16px;
+          font-weight: 500;
+          color: var(--texto-secundario);
+        }
       }
     }
 
-    .about-description {
+    .about-description p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      color: var(--texto-principal);
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    /* Botão Centralizado */
+    .about-btn-wrapper {
       width: 100%;
-      p {
-        font-family: 'Montserrat', sans-serif;
-        margin-bottom: 25px;
-        font-size: 18px;
-        color: var(--texto-principal);
-        line-height: 1.8;
+      display: flex;
+      justify-content: center;
+      margin: 40px 0;
+      clear: both;
+    }
+
+    .btn-about {
+      padding: 16px 50px;
+      background-color: var(--roxo);
+      border: 2px solid var(--roxo);
+      border-radius: 50px;
+      color: var(--branco);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      position: relative;
+
+      &:hover {
+        background-color: transparent;
+        color: var(--roxo);
       }
     }
 
+    /* Locais de Atendimento */
     .about-locations {
+      padding-top: 30px;
+      border-top: 1px solid var(--linha-divisoria);
       display: block;
       width: 100%;
+      margin-top: 20px;
       padding-top: 30px;
       border-top: 1px solid var(--linha-divisoria);
 
@@ -471,72 +516,306 @@ p {
 
       .location-item {
         display: flex;
-        align-items: flex-start;
         gap: 12px;
-        flex-grow: 0;
         flex: 0 1 auto;
         min-width: 200px;
 
-        .material-symbols-outlined {
-          color: var(--roxo);
-          font-size: 24px;
-        }
+        .material-symbols-outlined { color: var(--roxo); font-size: 24px; }
 
-        .location-text {
-          strong {
-            display: block; // Nome do hospital em cima
-            font-family: 'Montserrat', sans-serif;
-            font-size: 17px;
-            color: var(--texto-principal);
-            font-weight: 600;
-          }
-          span {
-            display: block; // Cidade embaixo
-            font-size: 14px;
-            color: var(--texto-secundario);
-            font-style: italic;
-          }
-        }
-      }
-    }
-
-    /* Botão */
-    .btn-about {
-      margin-top: 10px;
-      display: inline-block;
-      padding: 16px 50px;
-      background-color: var(--roxo);
-      border: 2px solid var(--roxo);
-      border-radius: 50px;
-      text-decoration: none;
-      color: var(--branco);
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 15px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: all 0.3s ease;
-
-      &:hover {
-        background-color: transparent;
-        color: var(--roxo);
+        strong { display: block; font-family: 'Montserrat', sans-serif; font-size: 17px; color: var(--texto-principal); }
+        span { display: block; font-size: 14px; color: var(--texto-secundario); font-style: italic; }
       }
     }
   }
-}
 
-/* Responsividade */
-@media (max-width: 900px) {
-  .about {
+  /* --- RESPONSIVIDADE UNIFICADA --- */
+  @media (max-width: 900px) {
     padding: 60px 20px;
+
     .about-container {
       flex-direction: column;
       gap: 40px;
       text-align: center;
     }
-    .about-credentials { justify-content: center; }
-    .about-photo-wrapper .about-img { height: 500px; }
+
+    .about-photo-wrapper .about-img {
+      height: 450px;
+      border-radius: 40px;
+    }
+
+    .about-info {
+      .about-name { font-size: 36px; }
+
+      .about-credentials {
+        justify-content: center;
+        text-align: left; // Mantém o texto alinhado com o ícone
+      }
+
+      .about-locations .locations-grid {
+        justify-content: center;
+      }
+    }
   }
+}
+
+/* SEÇÃO TRAJETÓRIA ACADÊMICA */
+.academic-path {
+  background: var(--rosa-1);
+  padding: 100px 20px;
+
+  .academic-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .academic-header {
+    margin-bottom: 80px;
+    text-align: center;
+
+    .academic-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      color: var(--roxo);
+      margin-bottom: 10px;
+    }
+
+    .academic-subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-style: italic;
+      color: var(--texto-secundario);
+      font-size: 18px;
+    }
+  }
+
+  /* Timeline Horizontal */
+  .timeline-wrapper {
+    position: relative;
+    padding: 40px 0;
+    margin-bottom: 100px;
+
+    .timeline-line {
+      position: absolute;
+      top: 48px;
+      left: 5%;
+      right: 5%;
+      height: 2px;
+      background: var(--linha-divisoria);
+      z-index: 1;
+    }
+
+    .timeline-items {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      z-index: 2;
+    }
+
+    .timeline-item {
+      flex: 1;
+      text-align: center;
+      padding: 0 10px;
+
+      .timeline-dot {
+        width: 18px;
+        height: 18px;
+        background: var(--roxo);
+        border: 4px solid var(--branco);
+        border-radius: 50%;
+        margin: 0 auto 25px;
+        box-shadow: 0 0 0 1px var(--roxo);
+      }
+
+      .timeline-year {
+        display: block;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        color: var(--roxo);
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+
+      h4 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 17px;
+        color: var(--texto-principal);
+        margin-bottom: 8px;
+      }
+
+      p {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        color: var(--texto-secundario);
+        line-height: 1.5;
+      }
+    }
+  }
+
+  /* Cards de Destaque */
+  .academic-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 100px;
+
+    .highlight-box {
+      background: var(--branco);
+      padding: 40px 30px;
+      border-radius: 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+
+      &:hover {
+        transform: translateY(-10px);
+        border-color: var(--rosa-2);
+      }
+
+      .highlight-icon {
+        font-size: 32px;
+        color: var(--roxo);
+        margin-bottom: 20px;
+      }
+
+      h4 {
+        font-family: 'Playfair Display', serif;
+        font-size: 20px;
+        color: var(--roxo);
+        margin-bottom: 15px;
+      }
+
+      p {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 15px;
+        color: var(--texto-secundario);
+        line-height: 1.6;
+      }
+    }
+  }
+
+  /* Galeria Integrada */
+  .academic-gallery-wrapper {
+    .academic-gallery-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      color: var(--roxo);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .academic-gallery-subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-style: italic;
+      text-align: center;
+      color: var(--texto-secundario);
+      margin-bottom: 40px;
+    }
+
+    .academic-gallery {
+      display: flex;
+      gap: 24px;
+      width: 100%;
+      /* Scroll suave para passar as fotos */
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 20px;
+
+      /* Esconde a barra de rolagem*/
+      &::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: var(--rosa-2);
+        border-radius: 10px;
+      }
+
+      .academic-gallery-item {
+        flex: 0 0 350px;
+        scroll-snap-align: center;
+        background: var(--branco);
+        padding: 15px;
+        border-radius: 25px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+
+        img {
+          width: 100%;
+          height: 250px;
+          object-fit: contain;
+          border-radius: 18px;
+        }
+
+        .academic-caption {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 14px;
+          color: var(--texto-secundario);
+          text-align: center;
+          padding: 0 10px 10px;
+          margin-top: auto;
+        }
+      }
+    }
+  }
+
+  /* --- RESPONSIVIDADE UNIFICADA --- */
+  @media (max-width: 900px) {
+    padding: 60px 20px;
+
+    .academic-header .academic-title { font-size: 32px; }
+
+    .timeline-wrapper {
+      .timeline-line {
+        left: 8px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        height: 100%;
+        display: block;
+      }
+
+      .timeline-items {
+        flex-direction: column;
+        gap: 50px;
+        padding-left: 40px;
+        position: relative;
+      }
+
+      .timeline-item {
+        text-align: left;
+        padding: 0;
+        position: relative;
+
+        .timeline-dot {
+          margin: 0;
+          position: absolute;
+          left: -40px;
+          top: 4px;
+          z-index: 3;
+        }
+      }
+    }
+
+    .academic-highlights {
+      grid-template-columns: 1fr;
+    }
+
+    .academic-gallery {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+
+  /* RESPONSIVIDADE ESPECÍFICA */
+@media (max-width: 768px) {
+  .academic-gallery {
+    gap: 15px;
+
+    .academic-gallery-item {
+      flex: 0 0 85%; // No mobile, mostra 85% do primeiro card para dar a "dica" de que tem mais pro lado
+    }
+  }
+}
 }
 
 /* AREAS DE ATUACAO */
@@ -707,197 +986,7 @@ p {
   display: block;
 }
 
-/* SEÇÃO TRAJETÓRIA ACADÊMICA */
-.academic-path {
-  background: var(--rosa-1);
-  padding: 100px 40px;
 
-  .academic-container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .academic-header {
-    margin-bottom: 60px;
-    text-align: center;
-  }
-
-.academic-title {
-    font-size: 40px;
-    margin-bottom: 10px;
-  }
-
-  .academic-subtitle {
-    font-style: italic;
-    color: var(--roxo);
-  }
-
-  /* Timeline */
-  .timeline-wrapper {
-    position: relative;
-    padding: 40px 0;
-    margin-bottom: 60px;
-
-    .timeline-line {
-      position: absolute;
-      top: 48px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--linha-divisoria);
-      z-index: 1;
-    }
-
-    .timeline-items {
-      display: flex;
-      justify-content: space-between;
-      position: relative;
-      z-index: 2;
-    }
-
-    .timeline-item {
-      flex: 1;
-      text-align: center;
-      padding: 0 20px;
-
-      .timeline-dot {
-        width: 16px;
-        height: 16px;
-        background: var(--roxo);
-        border: 4px solid #fff;
-        border-radius: 50%;
-        margin: 0 auto 20px;
-        box-shadow: 0 0 0 1px var(--roxo);
-      }
-
-      .timeline-year {
-        display: block;
-        font-weight: 700;
-        color: var(--roxo);
-        font-size: 14px;
-        margin-bottom: 8px;
-      }
-
-      h4 { font-size: 17px; margin-bottom: 5px; }
-      p { font-size: 14px; line-height: 1.4; }
-    }
-  }
-
-  /* Destaques Extras */
-  .academic-highlights {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 40px;
-
-    .highlight-box {
-      background: #fff;
-      padding: 30px;
-      border-radius: 24px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-      transition: transform 0.3s;
-
-      &:hover { transform: translateY(-5px); }
-
-      .highlight-icon { font-size: 24px; display: block; margin-bottom: 15px; }
-      h4 { margin-bottom: 10px; font-size: 18px; }
-      p { font-size: 14px; margin: 0; }
-      color: var(--roxo);
-    }
-  }
-}
-
-/* WRAPPER */
-.academic-gallery-wrapper {
-  margin-top: 80px;
-}
-
-/* TÍTULO*/
-.academic-gallery-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  color: var(--roxo);
-  text-align: center;
-}
-
-.academic-gallery-subtitle {
-  font-style: italic;
-  text-align: center;
-  color: var(--roxo);
-  margin-bottom: 30px;
-}
-
-/* CONTAINER HORIZONTAL */
-.academic-gallery {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  gap: 24px;
-}
-
-/* ITEM (imagem + legenda em coluna) */
-.academic-gallery-item {
-  flex: 1;
-  background: var(--rosa-3);
-  padding: 20px;
-  border-radius: 20px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* IMAGEM */
-.academic-gallery-item img {
-  width: 100%;
-  height: 200px;
-  object-fit: contain;
-  border-radius: 16px;
-}
-
-/* LEGENDA */
-.academic-caption {
-  margin-top: 12px;
-  font-size: 14px;
-  color: var(--texto-secundario);
-  text-align: center;
-  font-style: italic;
-}
-
-/* RESPONSIVIDADE GALERIA*/
-@media (max-width: 900px) {
-  .academic-gallery {
-    overflow-x: auto;
-    flex-wrap: nowrap;
-  }
-
-  .academic-gallery-item {
-    min-width: 80%;
-  }
-}
-
-
-/* RESPONSIVIDADE PARA TRAJETÓRIA */
-@media (max-width: 900px) {
-  .academic-path {
-    padding: 60px 20px;
-
-    .timeline-line { display: none; }
-    .timeline-items {
-      flex-direction: column;
-      gap: 40px;
-      border-left: 2px solid var(--linha-divisoria);
-      padding-left: 30px;
-    }
-    .timeline-item {
-      text-align: left;
-      padding: 0;
-      .timeline-dot { margin: 0; position: absolute; left: -39px; top: 5px; }
-    }
-    .academic-highlights { grid-template-columns: 1fr; }
-  }
-}
 
 /*FOOTER*/
 footer {
@@ -915,3 +1004,4 @@ footer a {
   opacity: 0.6;
   white-space: nowrap;
 }
+
