@@ -87,7 +87,7 @@ p {
     width: 120%;
     max-width: 1100px;
     height: auto;
-    opacity: 0.15;
+    opacity: 0.30;
     z-index: -1;
     pointer-events: none;
   }
@@ -104,7 +104,8 @@ p {
     text-transform: uppercase;
     letter-spacing: 4px;
     display: block;
-    margin-bottom: 5px;
+    margin-top: 40px;
+    margin-bottom: 10px;
     color: var(--roxo);
   }
 
@@ -159,44 +160,120 @@ p {
 }
 
 /* SOBRE */
-.about { background: var(--branco); }
+.about {
+  background-color: var(--branco);
+  padding: 120px 20px;
 
-.about-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  gap: 80px;
-  align-items: center;
+  .about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+  }
+
+  .about-photo-wrapper {
+    flex: 1;
+    .about-img {
+      width: 100%;
+      max-width: 500px;
+      height: 650px;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 60px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    }
+  }
+
+  .about-info {
+    flex: 1.2;
+
+    .about-subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      color: var(--texto-secundario);
+      display: block;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .about-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      color: var(--roxo);
+      margin-bottom: 15px;
+      line-height: 1.1;
+    }
+
+    .about-credentials {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 35px;
+      color: var(--roxo);
+
+      .material-symbols-outlined {
+        font-size: 32px;
+        display: block;
+      }
+
+      p {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0;
+        line-height: 1;
+      }
+    }
+
+    .about-description {
+      p {
+        font-family: 'Montserrat', sans-serif;
+        margin-bottom: 25px;
+        font-size: 18px;
+        color: var(--texto-principal);
+        line-height: 1.8;
+      }
+    }
+
+    /* Botão com mais destaque (Cor Escura) */
+    .btn-about {
+      margin-top: 10px;
+      display: inline-block;
+      padding: 16px 50px;
+      background-color: var(--roxo); // Fundo escuro
+      border: 2px solid var(--roxo);
+      border-radius: 50px;
+      text-decoration: none;
+      color: var(--branco); // Texto claro
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: transparent;
+        color: var(--roxo);
+      }
+    }
+  }
 }
 
-.about-photo img {
-  width: 400px;
-  height: 552px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.about-cards {
-  display: flex;
-  gap: 24px;
-  margin-top: 40px;
-}
-
-.about-card {
-  background: var(--rosa-3);
-  padding: 24px;
-  border-radius: 20px;
-  flex: 1;
-}
-
-.about-card h4 {
-  font-size: 17px;
-  margin-bottom: 12px;
-}
-
-.about-card p {
-  font-size: 15px;
-  margin-bottom: 0;
+/* Responsividade */
+@media (max-width: 900px) {
+  .about {
+    padding: 60px 20px;
+    .about-container {
+      flex-direction: column;
+      gap: 40px;
+      text-align: center;
+    }
+    .about-credentials { justify-content: center; }
+    .about-photo-wrapper .about-img { height: 500px; }
+  }
 }
 
 /* AREAS DE ATUACAO */
