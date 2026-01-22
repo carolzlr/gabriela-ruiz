@@ -21,12 +21,14 @@
   padding: 0;
 }
 
-body {
+html, body {
   font-family: 'Montserrat', sans-serif;
   color: var(--texto-principal);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  position: relative;
+  width: 100%;
   padding-top: 80px;
 }
 
@@ -55,6 +57,209 @@ p {
   color: var(--texto-secundario);
   line-height: 1.8;
 }
+
+/* HEADER */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: var(--branco);
+  border-bottom: 1px solid var(--linha-divisoria);
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+.header-content {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 10px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* LOGO + MARCA */
+.header-brand {
+  .brand-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+
+    .brand-logo {
+      height: 60px;
+      width: auto;
+      display: block;
+      transition: height 0.3s ease;
+    }
+
+    .brand-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--roxo);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+  }
+}
+
+/* MENU DE NAVEGAÇÃO */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  a {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--texto-principal);
+    transition: color 0.3s ease;
+    white-space: nowrap;
+
+    &:hover {
+      color: var(--roxo);
+    }
+
+    &.nav-btn {
+      padding: 10px 25px;
+      border-radius: 50px;
+      background-color: var(--roxo);
+      color: var(--branco);
+      font-weight: 600;
+      border: 1px solid var(--roxo);
+
+      &:hover {
+        background-color: transparent;
+        color: var(--roxo);
+      }
+    }
+  }
+}
+
+/* BOTÃO HAMBURGUER */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 32px;
+  height: 24px;
+  position: relative;
+  z-index: 1100;
+
+  span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--roxo);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+
+    &:nth-child(1) { top: 0; }
+    &:nth-child(2) { top: 10px; }
+    &:nth-child(3) { top: 20px; }
+  }
+
+  &.active {
+    span:nth-child(1) {
+      transform: rotate(45deg);
+      top: 10px;
+    }
+
+    span:nth-child(2) {
+      opacity: 0;
+    }
+
+    span:nth-child(3) {
+      transform: rotate(-45deg);
+      top: 10px;
+    }
+  }
+}
+
+/* RESPONSIVIDADE */
+// Tablets
+@media (max-width: 1024px) {
+  .header-nav {
+    gap: 15px;
+  }
+}
+
+// Celulares
+@media (max-width: 768px) {
+  .site-header {
+    min-height: 70px;
+  }
+
+  .header-content {
+    padding: 10px 20px;
+  }
+
+  .header-brand .brand-link {
+    .brand-logo {
+      height: 40px;
+    }
+
+    .brand-text {
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+  }
+}
+
+/* MENU MOBILE */
+@media (max-width: 900px) {
+  .hamburger {
+    display: block;
+  }
+
+  .header-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: min(80vw, 320px);
+    background: var(--branco);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.4s ease, opacity 0.3s ease;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    z-index: 1050;
+
+    &.mobile-open {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    a {
+      font-size: 16px;
+    }
+  }
+}
+
+
+
+
+
+
 
 /* HERO */
 .hero {
@@ -228,6 +433,7 @@ p {
     }
 
     .about-description {
+      width: 100%;
       p {
         font-family: 'Montserrat', sans-serif;
         margin-bottom: 25px;
@@ -237,16 +443,69 @@ p {
       }
     }
 
-    /* Botão com mais destaque (Cor Escura) */
+    .about-locations {
+      display: block;
+      width: 100%;
+      padding-top: 30px;
+      border-top: 1px solid var(--linha-divisoria);
+
+      .locations-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--roxo);
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      .locations-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+      }
+
+      .location-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        flex-grow: 0;
+        flex: 0 1 auto;
+        min-width: 200px;
+
+        .material-symbols-outlined {
+          color: var(--roxo);
+          font-size: 24px;
+        }
+
+        .location-text {
+          strong {
+            display: block; // Nome do hospital em cima
+            font-family: 'Montserrat', sans-serif;
+            font-size: 17px;
+            color: var(--texto-principal);
+            font-weight: 600;
+          }
+          span {
+            display: block; // Cidade embaixo
+            font-size: 14px;
+            color: var(--texto-secundario);
+            font-style: italic;
+          }
+        }
+      }
+    }
+
+    /* Botão */
     .btn-about {
       margin-top: 10px;
       display: inline-block;
       padding: 16px 50px;
-      background-color: var(--roxo); // Fundo escuro
+      background-color: var(--roxo);
       border: 2px solid var(--roxo);
       border-radius: 50px;
       text-decoration: none;
-      color: var(--branco); // Texto claro
+      color: var(--branco);
       font-family: 'Montserrat', sans-serif;
       font-weight: 600;
       font-size: 15px;
@@ -442,134 +701,6 @@ p {
   height: 150px;
   object-fit: contain;
   display: block;
-}
-
-/* ===== HEADER ===== */
-
-.site-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  background: var(--branco);
-  border-bottom: 1px solid var(--linha-divisoria);
-  height: 80px;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-}
-
-.header-content {
-  width: 100%;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* Marca */
-.header-brand .brand-link {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  text-decoration: none;
-
-  .brand-text{
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--roxo);
-    letter-spacing: 1px;
-  }
-}
-
-/* Navegação */
-.header-nav {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  justify-content: flex-end;
-  gap: 40px;
-}
-
-.header-nav a {
-  text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--texto-principal);
-  transition: color 0.3s ease;
-
-  &:hover{
-    color: var(--roxo);
-  }
-}
-
-
-
-/* Botão de contato */
-.header-nav .nav-btn {
-  margin-left: 20px; // Espaço extra para separar do resto do menu
-  padding: 10px 25px;
-  border-radius: 50px;
-  background-color: var(--roxo);
-  color: var(--branco) !important; // Força a cor branca no botão
-  font-weight: 600;
-  border: 1px solid var(--roxo);
-  transition: all 0.3s ease;
-
-  &::after { display: none; } // Remove a linha de hover se você estiver usando
-
-  &:hover {
-    background-color: transparent;
-    color: var(--roxo) !important;
-  }
-}
-
-/* RESPONSIVO */
-@media (max-width: 900px) {
-  .header-content {
-    padding: 16px 20px;
-  }
-
-  .header-nav {
-    gap: 20px;
-  }
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-/* LOGO NO HEADER */
-
-.brand-link {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-}
-
-.brand-logo {
-  height: 70px;
-  width: auto;
-  display: block;
-}
-
-.brand-text {
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--roxo);
-}
-
-@media (max-width: 900px) {
-  .brand-logo {
-    height: 34px;
-  }
 }
 
 /* SEÇÃO TRAJETÓRIA ACADÊMICA */

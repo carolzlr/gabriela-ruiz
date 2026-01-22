@@ -11,13 +11,19 @@
         <span class="brand-text">Gabriela Ruiz</span>
       </a>
     </div>
+    <!-- BOTÃO HAMBURGUER -->
+    <button class="hamburger" [class.active]="menuOpen" (click)="toggleMenu()" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <!-- NAVEGAÇÃO -->
-    <nav class="header-nav">
-      <a href="#home">Home</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#areas">Áreas de atuação</a>
-      <a href="#conteudo">Conhecimento</a>
-      <a href="#contato" class="nav-btn">Contato</a>
+    <nav class="header-nav" [class.mobile-open]="menuOpen">
+      <a href="#home" (click)="closeMenu()">Home</a>
+      <a href="#sobre" (click)="closeMenu()">Sobre</a>
+      <a href="#areas" (click)="closeMenu()">Áreas de atuação</a>
+      <a href="#conteudo" (click)="closeMenu()">Conhecimento</a>
+      <a href="#contato" class="nav-btn" (click)="closeMenu()">Contato</a>
     </nav>
   </div>
 </header>
@@ -69,7 +75,33 @@
           Atende em Belo Horizonte - MG, com foco em tratamentos resolutivos e centrados na qualidade de vida.
         </p>
       </div>
-      <a href="#contato" class="btn-about">Saiba Mais</a>
+      <div class="about-locations">
+      <h3 class="locations-title">Onde atende</h3>
+      <div class="locations-grid">
+        <div class="location-item">
+          <span class="material-symbols-outlined">location_on</span>
+          <div class="location-text">
+            <strong>Instituto Orizonti</strong>
+            <span>Belo Horizonte, MG</span>
+          </div>
+        </div>
+        <div class="location-item">
+          <span class="material-symbols-outlined">location_on</span>
+          <div class="location-text">
+            <strong>Hospital Evangêlico</strong>
+            <span>Belo Horizonte, MG</span>
+          </div>
+        </div>
+        <div class="location-item">
+          <span class="material-symbols-outlined">location_on</span>
+          <div class="location-text">
+            <strong>Hospital das Clínicas - UFMG</strong>
+            <span>Belo Horizonte, MG</span>
+          </div>
+        </div>
+      </div>
+    </div>
+      <a href="#contato" class="btn-about">Contatos</a>
     </div>
   </div>
 </section>
