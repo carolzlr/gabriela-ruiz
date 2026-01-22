@@ -10,3 +10,16 @@
   --texto-secundario: #5a4a52;
   --linha-divisoria: #e6dcdc;
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+}
