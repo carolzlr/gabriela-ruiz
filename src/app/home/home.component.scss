@@ -3,6 +3,7 @@
    Textos e UI: Montserrat (Estilo Arboria)
 */
 
+/*CONFIGURAÇÕES GERAIS E VARIÁVEIS*/
 :root {
   --roxo: #8a506d;
   --rosa-1: #f4edec;
@@ -14,7 +15,6 @@
   --linha-divisoria: #e6dcdc;
 }
 
-/* RESET / BASE */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -32,19 +32,19 @@ html, body {
   padding-top: 80px;
 }
 
-/* SEÇÕES GERAIS */
 section {
-  padding: 80px 0px; /* Padding reduzido para mais espaço lateral */
+  padding: 80px 0px;
   scroll-margin-top: 72px;
 }
 
 /* TIPOGRAFIA GLOBAL PADRONIZADA */
-h1, h2, .contact-title, .posts-title, .areas-title, .areas-sub {
+h1, h2, .contact-title, .posts-title, .areas-title, .academic-title {
   font-family: 'Playfair Display', serif;
   font-weight: 600;
   color: var(--roxo);
   line-height: 1.2;
 }
+
 
 h3, h4 {
   font-family: 'Montserrat', sans-serif;
@@ -258,13 +258,6 @@ p {
     }
   }
 }
-
-
-
-
-
-
-
 /* HERO */
 .hero {
   position: relative;
@@ -431,7 +424,7 @@ p {
 
       .credentials-text {
         display: flex;
-        flex-direction: column; // Sempre em duas linhas como você pediu
+        flex-direction: column;
         gap: 4px;
 
         .role {
@@ -558,7 +551,6 @@ p {
   }
 }
 
-/* SEÇÃO TRAJETÓRIA ACADÊMICA */
 .academic-path {
   background: var(--rosa-1);
   padding: 100px 20px;
@@ -715,21 +707,13 @@ p {
       display: flex;
       gap: 24px;
       width: 100%;
-      /* Scroll suave para passar as fotos */
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
       padding-bottom: 20px;
 
-      /* Esconde a barra de rolagem*/
-      &::-webkit-scrollbar {
-        height: 6px;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background: var(--rosa-2);
-        border-radius: 10px;
-      }
+      &::-webkit-scrollbar { height: 6px; }
+      &::-webkit-scrollbar-thumb { background: var(--rosa-2); border-radius: 10px; }
 
       .academic-gallery-item {
         flex: 0 0 350px;
@@ -739,118 +723,261 @@ p {
         border-radius: 25px;
         box-shadow: 0 10px 20px rgba(0,0,0,0.02);
 
-        img {
-          width: 100%;
-          height: 250px;
-          object-fit: contain;
-          border-radius: 18px;
-        }
-
-        .academic-caption {
-          font-family: 'Montserrat', sans-serif;
-          font-size: 14px;
-          color: var(--texto-secundario);
-          text-align: center;
-          padding: 0 10px 10px;
-          margin-top: auto;
-        }
+        img { width: 100%; height: 250px; object-fit: contain; border-radius: 18px; }
+        .academic-caption { font-size: 14px; color: var(--texto-secundario); text-align: center; margin-top: 10px; }
       }
     }
   }
 
-  /* --- RESPONSIVIDADE UNIFICADA --- */
+  /*RESPONSIVIDADE*/
   @media (max-width: 900px) {
     padding: 60px 20px;
-
     .academic-header .academic-title { font-size: 32px; }
 
     .timeline-wrapper {
-      .timeline-line {
-        left: 8px;
-        top: 0;
-        bottom: 0;
-        width: 2px;
+      .timeline-line { left: 8px; top: 0; bottom: 0; width: 2px; height: 100%; }
+      .timeline-items { flex-direction: column; gap: 50px; padding-left: 40px; }
+      .timeline-item {
+        text-align: left; padding: 0;
+        .timeline-dot { margin: 0; position: absolute; left: -40px; top: 4px; }
+      }
+    }
+    .academic-highlights { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .academic-gallery .academic-gallery-item { flex: 0 0 85%; }
+  }
+
+}
+
+/* ÁREAS DE ATUAÇÃO */
+.areas {
+  padding: 100px 20px;
+  background: var(--branco);
+
+  .areas-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .areas-header {
+    text-align: center;
+    margin-bottom: 60px;
+
+    .areas-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      color: var(--roxo);
+      margin-bottom: 15px;
+    }
+
+    /* Padronizado com about-btn-wrapper */
+    .btn-areas-contato {
+      padding: 16px 50px;
+      background-color: var(--roxo);
+      border: 2px solid var(--roxo);
+      border-radius: 50px;
+      color: var(--branco);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      position: relative;
+      margin-top: 20px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: transparent;
+        color: var(--roxo);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      }
+    }
+  }
+
+  .areas-text {
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    color: var(--texto-secundario);
+    font-size: 18px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    line-height: 1.6;
+  }
+
+  /* GRADE 4 COLUNAS E 2 LINHAS */
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); // Define as 4 colunas
+    gap: 30px;
+  }
+
+  .areas-card {
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+
+    /* GARANTIA DO HOVER NO DESKTOP */
+    &:hover {
+      .card-overlay {
+        opacity: 1; // Faz o roxo aparecer
+      }
+      .card-img-wrapper img {
+        transform: scale(1.1); // Leve zoom na imagem de fundo
+      }
+      transform: translateY(-5px);
+    }
+
+    .card-img-wrapper {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      height: 240px; // Altura ideal para 4 colunas
+      margin-bottom: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+
+      img {
+        width: 100%;
         height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
         display: block;
       }
 
-      .timeline-items {
-        flex-direction: column;
-        gap: 50px;
-        padding-left: 40px;
-        position: relative;
-      }
+      .card-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(138, 80, 109, 0.85);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 2;
 
-      .timeline-item {
-        text-align: left;
-        padding: 0;
-        position: relative;
-
-        .timeline-dot {
-          margin: 0;
-          position: absolute;
-          left: -40px;
-          top: 4px;
-          z-index: 3;
+        span {
+          color: #ffffff;
+          border: 2px solid #ffffff;
+          padding: 10px 20px;
+          border-radius: 50px;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 600;
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
         }
       }
     }
 
-    .academic-highlights {
-      grid-template-columns: 1fr;
+    .areas-sub {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--roxo);
+      line-height: 1.3;
+      margin: 0;
     }
 
-    .academic-gallery {
-      grid-template-columns: 1fr;
-      gap: 20px;
+    .mobile-hint {
+      display: none; // Escondido no Desktop
+    }
+  }
+}
+
+  /* MODAL */
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px;
+  }
+
+  .modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+
+    .modal-close {
+      position: absolute;
+      top: 15px; right: 15px;
+      width: 40px; height: 40px;
+      background: var(--rosa-1);
+      color: var(--roxo);
+      border: none;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: 0.3s;
+      &:hover { background: var(--roxo); color: white; }
+    }
+
+    .modal-body {
+      img { width: 100%; height: 250px; object-fit: cover; border-radius: 20px; margin-bottom: 25px; }
+      h3 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--roxo); margin-bottom: 15px; }
+      p { font-family: 'Montserrat', sans-serif; font-size: 16px; color: var(--texto-secundario); line-height: 1.7; margin-bottom: 30px; }
+    }
+
+    .btn-modal-wpp {
+      display: inline-block;
+      padding: 15px 35px;
+      background-color: var(--roxo);
+      color: white;
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      border-radius: 50px;
+      transition: 0.3s;
+      border: 2px solid var(--roxo);
+      &:hover { background: transparent; color: var(--roxo); transform: translateY(-3px); }
     }
   }
 
-  /* RESPONSIVIDADE ESPECÍFICA */
+/* RESPONSIVIDADE */
+@media (max-width: 1100px) {
+  .areas .areas-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 768px) {
-  .academic-gallery {
-    gap: 15px;
+  .areas {
+    padding: 60px 20px;
+    .areas-grid { grid-template-columns: 1fr; gap: 30px; }
 
-    .academic-gallery-item {
-      flex: 0 0 85%; // No mobile, mostra 85% do primeiro card para dar a "dica" de que tem mais pro lado
+    .areas-card {
+      .card-img-wrapper {
+        height: 240px;
+        .card-overlay { display: none; }
+      }
+      .mobile-hint {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px 25px;
+        border: 1px solid var(--roxo);
+        border-radius: 50px;
+        color: var(--roxo);
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+      }
+      &:hover { transform: none; }
     }
   }
-}
-}
-
-/* AREAS DE ATUACAO */
-.areas { background: var(--branco); }
-
-.areas-header {
-  max-width: 1200px;
-  margin: 0 auto 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.areas-text {
-  max-width: 800px;
-  margin: 0 auto 60px;
-  text-align: center;
-  font-size: 18px;
-}
-
-.areas-grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.areas-card {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--rosa-3);
-  padding: 20px 16px;
-  border-radius: 16px;
-  text-align: center;
 }
 
 /* POSTS */
@@ -930,13 +1057,11 @@ p {
 
 /* RESPONSIVO */
 @media (max-width: 900px) {
-  .hero-flex, .about-content, .contact-end-content {
+  .contact-end-content {
     flex-direction: column;
     text-align: center;
   }
-  .areas-grid, .posts-grid { grid-template-columns: 1fr; }
-  .hero-img { width: 100%; max-width: 300px; }
-  .about-cards { flex-direction: column; }
+  .posts-grid { grid-template-columns: 1fr; }
 }
 
 /* --- Seção Conhecimento em Foco (Posts) --- */
@@ -965,28 +1090,6 @@ p {
     text-align: center;
   }
 }
-
-.areas-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-.areas-card {
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.areas-card img {
-  width: 100%;
-  height: 150px;
-  object-fit: contain;
-  display: block;
-}
-
-
 
 /*FOOTER*/
 footer {

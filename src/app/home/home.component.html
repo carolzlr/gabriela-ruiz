@@ -166,7 +166,7 @@
           trophy
         </span>
         <h4>Títulos</h4>
-        <p>Membro da Sociedade Brasileira de Cirurgia Cardiovascular.</p>
+        <p>Título de Especialista da Sociedade Brasileira de Cirurgia Cardiovascular.</p>
       </div>
     </div>
     <!-- GALERIA ACADÊMICA -->
@@ -175,15 +175,15 @@
       <p class="academic-gallery-subtitle">Ensino, Pesquisa e Prática.</p>
       <div class="academic-gallery">
         <div class="academic-gallery-item">
-          <img src="images/academica-1.jpg" alt="Formação acadêmica">
+          <img src="images/formatura.jpg" alt="Formação acadêmica">
           <p class="academic-caption">Formação na Faculdade de Medicina da UFMG</p>
         </div>
         <div class="academic-gallery-item">
-          <img src="images/academica-1.jpg" alt="Residência médica">
+          <img src="images/operando.jpg" alt="Residência médica">
           <p class="academic-caption">Residência em Cirurgia Cardiovascular no HC-UFMG</p>
         </div>
         <div class="academic-gallery-item">
-          <img src="images/academica-1.jpg" alt="Pesquisa científica">
+          <img src="images/congresso.png" alt="Pesquisa científica">
           <p class="academic-caption">Atuação em pesquisa e produção científica</p>
         </div>
       </div>
@@ -193,55 +193,44 @@
 
 <!-- AREAS DE ATUACAO -->
 <section class="areas" id="areas">
-  <div class="areas-header">
-    <h2 class="areas-title">Áreas de Atuação</h2>
+  <div class="areas-container">
+    <div class="areas-header">
+      <h2 class="areas-title">Áreas de Atuação</h2>
+      <a href="#contato" class="btn-areas-contato">contato</a>
+    </div>
+    <p class="areas-text">
+      Atendimento especializado em cirurgia cardiovascular, com foco em diagnóstico,
+      tratamento e acompanhamento de doenças do coração e grandes vasos.
+    </p>
 
-    <a href="#contato" class="btn areas-btn">
-      Contato
-    </a>
+    <div class="areas-grid">
+      <div class="areas-card" *ngFor="let area of areasAtuacao" (click)="openModal(area)">
+        <div class="card-img-wrapper">
+          <img [src]="area.img" [alt]="area.title">
+          <div class="card-overlay">
+            <span>Saiba Mais</span>
+          </div>
+        </div>
+        <h4 class="areas-sub">{{ area.title }}</h4>
+        <span class="mobile-hint">Ver detalhes</span>
+      </div>
+    </div>
   </div>
 
-  <p class="areas-text">
-    Atendimento especializado em cirurgia cardiovascular, com foco em
-    diagnóstico, tratamento e acompanhamento de doenças do coração e
-    grandes vasos. Cada procedimento é realizado com precisão,
-    tecnologia atual e cuidado humano, priorizando segurança,
-    recuperação e qualidade de vida dos pacientes.
-  </p>
+  <div class="modal-overlay" *ngIf="selectedArea" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="modal-close" (click)="closeModal()">&times;</button>
 
-  <section class="areas-grid">
-    <div class="areas-card">
-        <img src="images/ccv.jpg" alt="Cirurgia Cardiovascular">
-        <h4 class="areas-sub">Cirurgia Cardiovascular</h4>
+      <div class="modal-body">
+        <img [src]="selectedArea.img" alt="">
+        <h3>{{ selectedArea.title }}</h3>
+        <p>{{ selectedArea.desc }}</p>
+        <a href="https://wa.me/31991562728" target="_blank" class="btn-modal-wpp">
+          Informações
+        </a>
+      </div>
     </div>
-    <div class="areas-card">
-        <img src="images/valvar.jpg" alt="Plastia ou Troca Valvares">
-        <h4 class="areas-sub">Plastia ou Troca Valvares</h4>
-    </div>
-    <div class="areas-card">
-        <img src="images/revasc.jpg" alt="Revascularização do Miocárdio">
-        <h4 class="areas-sub">Revascularização do Miocárdio</h4>
-    </div>
-    <div class="areas-card">
-        <img src="images/transplante.jpg" alt="Transplante Cardíaco">
-        <h4 class="areas-sub">Transplante Cardíaco</h4>
-    </div>
-    <div class="areas-card">
-        <img src="images/aneurisma.jpg" alt="Aneurismas de Aorta">
-        <h4 class="areas-sub">Aneurismas de Aorta</h4>
-    </div>
-    <div class="areas-card">
-        <img src="images/marcapasso.jpg" alt="Marcapassos">
-        <h4 class="areas-sub">Marcapassos</h4>
-    </div>
-    <div class="areas-card">
-        <img src="images/consulta.jpg" alt="Consultas Presenciais e Online">
-        <h4 class="areas-sub">Consultas Presenciais e Online</h4>
-    </div>
-    <div class="areas-card">
-        <img src="images/ecmo.jpg" alt="ECMO">
-        <h4 class="areas-sub">ECMO</h4>
-    </div>
+  </div>
 </section>
 
 <!-- CONHECIMENTO EM FOCO -->
