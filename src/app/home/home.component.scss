@@ -875,7 +875,7 @@ p {
       margin-bottom: 15px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.06);
 
-      -webkit-mask-image: -webkit-radial-gradient(white, black);
+      //-webkit-mask-image: -webkit-radial-gradient(white, black);
 
       img {
         width: 100%;
@@ -1077,38 +1077,197 @@ p {
   }
 }
 
-/* POSTS */
-.posts { background: var(--rosa-1); }
+/* CONHECIMENTO EM FOCO */
+.posts {
+  background: var(--rosa-1);
+  padding: 100px 20px;
+  overflow: hidden; // Evita que as setas criem barra de rolagem na página
 
-.posts-grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  .posts-header {
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    .posts-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      color: var(--roxo);
+      margin: 0;
+    }
+
+    .btn {
+      padding: 14px 35px;
+      background-color: var(--roxo);
+      color: var(--branco);
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      border-radius: 50px;
+      border: 2px solid var(--roxo);
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      &:hover {
+        background: transparent;
+        color: var(--roxo);
+        transform: translateY(-3px);
+      }
+    }
+  }
+
+  /* CONTAINER DAS SETAS */
+  .posts-wrapper-relative {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background: var(--branco);
+      border: 1px solid var(--rosa-2);
+      border-radius: 50%;
+      color: var(--roxo);
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: var(--roxo);
+        color: var(--branco);
+      }
+
+      &.prev { left: -25px; }
+      &.next { right: -25px; }
+
+      span { font-size: 30px; }
+    }
+  }
+
+  /* O TRILHO DE CARDS */
+  .posts-grid {
+    display: flex; // USAR FLEX PARA ROLAGEM HORIZONTAL
+    gap: 30px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding: 20px 0 40px;
+    width: 100%;
+    scrollbar-width: none; // Firefox
+    &::-webkit-scrollbar { display: none; } // Chrome/Safari
+  }
+
+  /* O CARD INDIVIDUAL */
+  .post-card {
+    flex: 0 0 360px; // Largura fixa do card
+    scroll-snap-align: start;
+    text-decoration: none;
+    background: var(--branco);
+    padding: 15px;
+    border-radius: 28px;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+
+    &:hover {
+      transform: translateY(-10px);
+      .img-container .post-overlay { opacity: 1; visibility: visible; }
+      .img-container img { transform: scale(1.05); }
+    }
+
+    .img-container {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 20px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        transition: transform 0.5s ease;
+      }
+
+      .post-overlay {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(138, 80, 109, 0.5);
+        backdrop-filter: blur(3px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+
+        .btn-overlay {
+          background: var(--branco);
+          color: var(--roxo);
+          padding: 10px 22px;
+          border-radius: 50px;
+          font-weight: 700;
+          text-transform: uppercase;
+          font-size: 13px;
+        }
+      }
+    }
+
+    .post-caption {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--roxo);
+      line-height: 1.5;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .btn-mobile-read {
+      display: none; // Escondido no Desktop
+      text-align: center;
+      padding: 12px;
+      background: var(--rosa-1);
+      color: var(--roxo);
+      border-radius: 15px;
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+  }
 }
 
-.post-card {
-  text-decoration: none;
-  background: var(--rosa-2);
-  padding: 20px;
-  border-radius: 24px;
-  transition: 0.3s;
+/* RESPONSIVIDADE */
+@media (max-width: 1024px) {
+  .posts .nav-btn { display: none !important; }
+  .posts .post-card { flex: 0 0 300px; } // Cards menores em tablets
 }
 
-.post-card:hover { transform: translateY(-5px); }
-
-.post-card img {
-  width: 100%;
-  border-radius: 16px;
-  margin-bottom: 16px;
-}
-
-.post-caption {
-  font-weight: 500;
-  font-size: 15px;
-  color: var(--roxo);
-  text-align: center;
+@media (max-width: 768px) {
+  .posts {
+    padding: 60px 20px;
+    .posts-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+    .post-card {
+      flex: 0 0 100%; // Mostra o card todo no mobile
+      .btn-mobile-read { display: block; } // Mostra o botão no mobile
+    }
+  }
 }
 
 /* CONTATO */

@@ -237,45 +237,72 @@
 <section class="posts" id="conteudo">
   <div class="posts-header">
     <h2 class="posts-title">Conhecimento em Foco</h2>
-
-    <a
-      href="https://www.instagram.com/bedside_medicine/"
-      target="_blank"
-      class="btn"
-    >
-      Saiba Mais
-    </a>
+    <a href="https://www.instagram.com/bedside_medicine/" target="_blank" class="btn">Saiba Mais</a>
   </div>
+  <div class="posts-wrapper-relative">
+    <button class="nav-btn prev" (click)="trilho.scrollBy({left: -380, behavior:'smooth'})">
+      <span class="material-symbols-outlined">chevron_left</span>
+    </button>
+    <div class="posts-grid" #trilho>
+      <!--Estrura que repete para adicionar mais posts-->
+      <a href="https://www.instagram.com/reel/DRW6Dn_jvoL/" target="_blank" class="post-card">
+        <div class="img-container">
+          <img src="images/post-1.png" alt="Post Instagram" />
+          <div class="post-overlay">
+            <span class="btn-overlay">Texto Completo</span>
+          </div>
+        </div>
+        <span class="post-caption">Marcapasso Após Cirurgia Cardíaca: Quando Realmente Indicar?</span>
+        <div class="btn-mobile-read">Texto Completo</div>
+      </a>
 
-  <div class="posts-grid">
+      <a href="https://www.instagram.com/p/DRPnaM5DiNv/" target="_blank" class="post-card">
+        <div class="img-container">
+          <img src="images/post-2.png" alt="Post Instagram" />
+          <div class="post-overlay">
+            <span class="btn-overlay">Texto Completo</span>
+          </div>
+        </div>
+        <span class="post-caption">ACLS 2025: o que realmente muda no atendimento...</span>
+        <div class="btn-mobile-read">Texto Completo</div>
+      </a>
 
-    <a
-      href="https://www.instagram.com/reel/DRW6Dn_jvoL/"
-      target="_blank"
-      class="post-card"
-    >
-      <img src="images/post-1.png" alt="Post Instagram" />
-      <span class="post-caption">Marcapasso Após Cirurgia Cardíaca: Quando Realmente Indicar?</span>
-    </a>
+      <a href="https://www.instagram.com/p/DRKk1bCDuYf/" target="_blank" class="post-card">
+        <div class="img-container">
+          <img src="images/post-3.png" alt="Post Instagram" />
+          <div class="post-overlay">
+            <span class="btn-overlay">Texto Completo</span>
+          </div>
+        </div>
+        <span class="post-caption">Vasoplegia Pós-CEC parte 1: Entendendo Origem...</span>
+        <div class="btn-mobile-read">Texto Completo</div>
+      </a>
 
-    <a
-      href="https://www.instagram.com/p/DRPnaM5DiNv/"
-      target="_blank"
-      class="post-card"
-    >
-      <img src="images/post-2.png" alt="Post Instagram" />
-      <span class="post-caption">ACLS 2025: o que realmente muda no atendimento — da prevenção ao pós-parada</span>
-    </a>
+      <a href="https://www.instagram.com/p/DRKk1bCDuYf/" target="_blank" class="post-card">
+        <div class="img-container">
+          <img src="images/post-3.png" alt="Post Instagram" />
+          <div class="post-overlay">
+            <span class="btn-overlay">Texto Completo</span>
+          </div>
+        </div>
+        <span class="post-caption">Vasoplegia Pós-CEC parte 1: Entendendo Origem...</span>
+        <div class="btn-mobile-read">Texto Completo</div>
+      </a>
 
-    <a
-      href="https://www.instagram.com/p/DRKk1bCDuYf/"
-      target="_blank"
-      class="post-card"
-    >
-      <img src="images/post-3.png" alt="Post Instagram" />
-      <span class="post-caption">Vasoplegia Pós-CEC parte 1: Entendendo Origem, Fisiopatologia e Fatores de Risco</span>
-    </a>
-
+      <a href="https://www.instagram.com/p/DRKk1bCDuYf/" target="_blank" class="post-card">
+        <div class="img-container">
+          <img src="images/post-3.png" alt="Post Instagram" />
+          <div class="post-overlay">
+            <span class="btn-overlay">Texto Completo</span>
+          </div>
+        </div>
+        <span class="post-caption">Vasoplegia Pós-CEC parte 1: Entendendo Origem...</span>
+        <div class="btn-mobile-read">Texto Completo</div>
+      </a>
+    </div>
+    <button class="nav-btn next" (click)="trilho.scrollBy({left: 380, behavior:'smooth'})">
+      <span class="material-symbols-outlined">chevron_right</span>
+    </button>
   </div>
 </section>
 
