@@ -290,7 +290,7 @@ p {
 
   .hero-element {
     width: 100%;
-    max-width: 320px;
+    max-width: 200px;
     height: auto;
     opacity: 1;
 
@@ -808,18 +808,37 @@ p {
   .areas-container {
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .areas-header {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 
     .areas-title {
       font-family: 'Playfair Display', serif;
       font-size: 42px;
       color: var(--roxo);
-      margin-bottom: 15px;
+      margin-bottom: 0;
     }
+  }
+
+  .areas-text {
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    color: var(--texto-secundario);
+    font-size: 18px;
+    text-align: center;
+    max-width: 800px;
+    margin: 30px;
+    line-height: 1.6;
+  }
+
+  .areas-action {
+    text-align: center;
+    margin-bottom: 60px;
 
     /* Padronizado com about-btn-wrapper */
     .btn-areas-contato {
@@ -847,17 +866,6 @@ p {
         box-shadow: 0 10px 20px rgba(0,0,0,0.1);
       }
     }
-  }
-
-  .areas-text {
-    font-family: 'Montserrat', sans-serif;
-    font-style: italic;
-    color: var(--texto-secundario);
-    font-size: 18px;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 60px;
-    line-height: 1.6;
   }
 
   /* GRADE 4 COLUNAS E 2 LINHAS */
@@ -1106,11 +1114,14 @@ p {
   .posts-container {
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .posts-header {
     text-align: center; // Centralizado por padrão
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: column; // Título em cima, botão embaixo (ou vice-versa)
     align-items: center;
@@ -1119,8 +1130,24 @@ p {
       font-family: 'Playfair Display', serif;
       font-size: 42px;
       color: var(--roxo);
-      margin-bottom: 0 0 15px 0;
+      margin: 0;
     }
+  }
+
+  .posts-text {
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    color: var(--texto-secundario);
+    font-size: 18px;
+    text-align: center;
+    max-width: 800px;
+    margin: 60px;
+    line-height: 1.6;
+  }
+
+  .posts-action {
+    text-align: center;
+    margin-bottom: 40px;
 
     .btn-posts-contato {
       padding: 16px 50px;
@@ -1142,20 +1169,8 @@ p {
         background-color: transparent;
         color: var(--roxo);
         transform: translateY(-3px);
-        //box-shadow: 0 10px 20px rgba(0,0,0,0.1);
       }
     }
-  }
-
-  .posts-text {
-    font-family: 'Montserrat', sans-serif;
-    font-style: italic;
-    color: var(--texto-secundario);
-    font-size: 18px;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 60px;
-    line-height: 1.6;
   }
 
   /* CONTAINER DAS SETAS (VERSÃO DESKTOP) */
