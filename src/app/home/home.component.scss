@@ -261,72 +261,92 @@ p {
 /* HERO */
 .hero {
   position: relative;
-  height: 100vh;
-  min-height: 700px;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  overflow: hidden;
+  padding: 60px 20px;
   background-color: var(--rosa-1);
 
   .hero-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 900px;
-    padding: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    gap: 40px;
+    text-align: center;
     z-index: 2;
+
+    // desktop: imagem a esquerda texto a direita
+    @media (min-width: 992px) {
+      flex-direction: row;
+      text-align: left;
+      align-items: center;
+      grid-area: 80px;
+    }
   }
 
-  .hero-bg-element {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  .hero-element {
     width: 100%;
-    max-width: 1100px;
+    max-width: 320px;
     height: auto;
-    opacity: 0.30;
-    z-index: -1;
-    pointer-events: none;
+    opacity: 1;
+
+    @media (min-width: 992px) {
+      max-width: 500px;
+      flex: 1;
+    }
   }
 
   .hero-content {
-    position: relative;
-    max-width: 900px;
-    padding: 0 20px;
-  }
+    max-width: 600px;
 
-  .hero-kicker {
-    font-size: 48px;
-    font-family: 'Playfair Display', serif;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    display: block;
-    margin-top: 40px;
-    margin-bottom: 10px;
-    color: var(--roxo);
-  }
-
-  h1 {
-    font-size: 20px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 8px;
-    color: var(--roxo);
-    margin-bottom: 30px;
+    @media (min-width: 992px) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
   .hero-divider {
-    width: auto;
+    width: 100%;
     height: 1px;
     background: var(--roxo);
     margin: 20px 0;
+    align-self: stretch;
+
+    @media (min-width: 992px) {
+      margin: 20px 0;
+      width: 100%
+    }
   }
+
+  .hero-kicker {
+    font-size: clamp(32px, 5vw, 48px);
+    font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--roxo);
+    display: block;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: var(--roxo);
+    margin: 0;
+    line-height: 1.4;
+    margin-bottom: 30px;
+  }
+
+
 
   .hero-phrase {
     font-size: 18px;
@@ -350,7 +370,7 @@ p {
 
     &:hover {
       background: var(--roxo);
-      color: #000;
+      color: #fff;
     }
   }
 }
