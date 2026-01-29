@@ -46,14 +46,14 @@ export class HomeComponent implements AfterViewInit {
       desc: 'Implante de dispositivos eletrônicos para correção de distúrbios do ritmo cardíaco (bradicardias).'
     },
     {
-      title: 'Consultas Presenciais e Online',
-      img: 'images/consulta.jpg',
-      desc: 'Atendimento clínico humanizado para diagnóstico, segunda opinião médica e acompanhamento pós-operatório.'
-    },
-    {
       title: 'ECMO',
       img: 'images/ecmo.jpg',
       desc: 'Suporte de vida extracorpóreo utilizado em casos graves de falência cardíaca ou respiratória como ponte para recuperação ou transplante.'
+    },
+    {
+      title: 'Consultas Presenciais e Online',
+      img: 'images/consulta.jpg',
+      desc: 'Atendimento clínico humanizado para diagnóstico, segunda opinião médica e acompanhamento pós-operatório.'
     }
   ]
 

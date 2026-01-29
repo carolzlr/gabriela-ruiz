@@ -53,7 +53,7 @@
     </div>
     <div class="about-info">
       <span class="about-subtitle">Sobre a profissional</span>
-      <h2 class="about-name">DRA. GABRIELA RUIZ</h2>
+      <h2 class="about-name">GABRIELA RUIZ</h2>
       <div class="about-credentials">
         <span class="material-symbols-outlined">stethoscope</span>
         <div class="credentials-text">
@@ -108,14 +108,12 @@
 
 
 <!--TRAJETORIA ACADEMICA E DESTAQUES-->
-
 <section class="academic-path" id="trajetoria">
   <div class="academic-container">
     <div class="academic-header">
       <h2 class="academic-title">Trajetória Acadêmica</h2>
       <p class="academic-subtitle">Formação sólida e constante atualização científica.</p>
     </div>
-
     <div class="timeline-wrapper">
       <div class="timeline-line"></div>
       <div class="timeline-items">
@@ -166,26 +164,38 @@
           trophy
         </span>
         <h4>Títulos</h4>
-        <p>Título de Especialista da Sociedade Brasileira de Cirurgia Cardiovascular.</p>
+        <p>Membro Aspirante da Sociedade Brasileira de Cirurgia Cardiovascular.</p>
       </div>
     </div>
-    <!-- GALERIA ACADÊMICA -->
+
     <div class="academic-gallery-wrapper">
       <h2 class="academic-gallery-title">Vivência Acadêmica e Científica</h2>
       <p class="academic-gallery-subtitle">Ensino, Pesquisa e Prática.</p>
-      <div class="academic-gallery">
-        <div class="academic-gallery-item">
-          <img src="images/formatura.jpg" alt="Formação acadêmica">
-          <p class="academic-caption">Formação na Faculdade de Medicina da UFMG</p>
+      <div class="academic-wrapper-relative">
+        <button class="nav-btn prev" (click)="galeria.scrollBy({left: -380, behavior: 'smooth'})">
+          <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+        <div class="academic-gallery" #galeria>
+          <div class="academic-gallery-item">
+            <img src="images/formatura.jpg" alt="Formação acadêmica">
+            <p class="academic-caption">Formação na Faculdade de Medicina da UFMG</p>
+          </div>
+          <div class="academic-gallery-item">
+            <img src="images/operando.jpg" alt="Residência médica">
+            <p class="academic-caption">Residência em Cirurgia Cardiovascular no HC-UFMG</p>
+          </div>
+          <div class="academic-gallery-item">
+            <img src="images/congresso.png" alt="Pesquisa científica">
+            <p class="academic-caption">Atuação em pesquisa e produção científica</p>
+          </div>
+          <div class="academic-gallery-item">
+            <img src="images/congresso.png" alt="Pesquisa científica">
+            <p class="academic-caption">Atuação em pesquisa e produção científica</p>
+          </div>
         </div>
-        <div class="academic-gallery-item">
-          <img src="images/operando.jpg" alt="Residência médica">
-          <p class="academic-caption">Residência em Cirurgia Cardiovascular no HC-UFMG</p>
-        </div>
-        <div class="academic-gallery-item">
-          <img src="images/congresso.png" alt="Pesquisa científica">
-          <p class="academic-caption">Atuação em pesquisa e produção científica</p>
-        </div>
+        <button class="nav-btn next" (click)="galeria.scrollBy({left: 380, behavior: 'smooth'})">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </button>
       </div>
     </div>
   </div>

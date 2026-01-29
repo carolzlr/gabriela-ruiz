@@ -708,46 +708,95 @@ p {
 
   /* Galeria Integrada */
   .academic-gallery-wrapper {
-    .academic-gallery-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 32px;
-      color: var(--roxo);
-      text-align: center;
-      margin-bottom: 10px;
-    }
 
-    .academic-gallery-subtitle {
-      font-family: 'Montserrat', sans-serif;
-      font-style: italic;
-      text-align: center;
-      color: var(--texto-secundario);
-      margin-bottom: 40px;
-    }
-
-    .academic-gallery {
-      display: flex;
-      gap: 24px;
+    .academic-wrapper-relative {
+      position: relative;
       width: 100%;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 20px;
+    }
 
-      &::-webkit-scrollbar { height: 6px; }
-      &::-webkit-scrollbar-thumb { background: var(--rosa-2); border-radius: 10px; }
+    .nav-btn {
+      position: absolute;
+      top: 45%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background: var(--branco);
+      border: 1px solid var(--rosa-2);
+      border-radius: 50%;
+      color: var(--roxo);
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
 
-      .academic-gallery-item {
-        flex: 0 0 350px;
-        scroll-snap-align: center;
-        background: var(--branco);
-        padding: 15px;
-        border-radius: 25px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+      &:hover {
+        background: var(--roxo);
+        color: var(--branco);
+      }
 
-        img { width: 100%; height: 250px; object-fit: contain; border-radius: 18px; }
-        .academic-caption { font-size: 14px; color: var(--texto-secundario); text-align: center; margin-top: 10px; }
+      &.prev {
+        left: -25px;
+      }
+
+      &.next {
+        right: -25px;
       }
     }
+  }
+
+  .academic-gallery {
+    display: flex;
+    gap: 24px;
+    width: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding: 20px 0;
+    scrollbar-width: none; // esconde scrollbar no firefox
+
+    &::-webkit-scrollbar {display: none;} // esconde scrollbar no chrome e safari
+
+    .academic-gallery-item {
+      flex: 0 0 350px;
+      scroll-snap-align: center;
+      background: var(--branco);
+      padding: 15px;
+      border-radius: 25px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+
+      img {
+        width: 100%;
+        height: 250px;
+        object-fit: contain;
+        border-radius: 18px;
+      }
+
+      .academic-caption {
+        font-size: 14px;
+        color: var(--texto-secundario);
+        text-align: center;
+        margin-top: 10px;
+      }
+    }
+
+  }
+
+  .academic-gallery-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    text-align: center;
+    color: var(--texto-secundario);
+    margin-bottom: 40px;
+  }
+  .academic-gallery-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: var(--roxo);
+    text-align: center;
+    margin-bottom: 10px;
   }
 
   /*RESPONSIVIDADE*/
@@ -1327,20 +1376,16 @@ p {
 /* RESPONSIVIDADE */
 @media (max-width: 768px) {
   .posts {
-    .nav-btn {
-      display: none !important; // Esconde as setas de navegação no mobile
-    }
 
     .posts-grid {
       gap: 20px;
       padding: 10px 10px 40px;
       overflow-x: auto !important;
-      scrollbar-width: thin !important;
+      scrollbar-width: none !important;
+      -ms-overflow-style: none;
 
       &::-webkit-scrollbar {
-        display: block !important;
-        height: 5px !important;
-        background-color: var(--rosa-3);
+        display: none !important;
       }
 
       &::-webkit-scrollbar-thumb {
