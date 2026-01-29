@@ -97,4 +97,120 @@ export class HomeComponent implements AfterViewInit {
     document.body.style.overflow = '';
   }
  }
+
+ timeline: any[] = [
+  {
+      id: 'graduacao',
+      label: 'Graduação',
+      items: [
+        {
+          title: 'Graduação em Medicina',
+          subtitle: 'Faculdade de Medicina da UFMG',
+          period: '2013 - 2018',
+          desc: 'Formação médica com sólida base clínica e cirúrgica.',
+          extras: [
+            {
+              type: 'Iniciação Científica',
+              title: 'Projeto de Pesquisa',
+              desc: 'Participação em projeto de iniciação científica.'
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      id: 'residencia',
+      label: 'Residência',
+      items: [
+        {
+          title: 'Residência Médica',
+          subtitle: 'Cirurgia Cardiovascular no HC-UFMG',
+          period: '2019 - 2024',
+          desc: 'Treinamento intensivo em cirurgia cardiovascular.'
+        }
+      ]
+    },
+
+    {
+      id: 'pos',
+      label: 'Pós-Graduação',
+      items: [
+        {
+          title: 'Mestrado',
+          subtitle: 'Novas tecnologias cardiovasculares',
+          period: 'Atual',
+          desc: 'Foco em inovação e pesquisa.'
+        }
+      ]
+    },
+
+    {
+      id: 'carreira',
+      label: 'Carreira',
+      items: [
+        {
+          title: 'EBSERH',
+          subtitle: 'Cirurgia Cardiovascular no HC-UFMG',
+          period: '2024 - Atual',
+          desc: 'Atuação hospitalar universitária.'
+        },
+        {
+          title: 'CTS',
+          subtitle: 'Plantonista IAM',
+          period: '2024 - Atual',
+          desc: 'Atuação como plantonista remoto.'
+        },
+        {
+          title: 'Bedside',
+          subtitle: 'Redatora',
+          period: '2024 - Atual',
+          desc: 'Produção de conteúdo médico.'
+        }
+      ]
+    }
+  ];
+
+
+ selectedTimeline: any = null;
+ selectTimeline(group: any) {
+  if (this.selectedTimeline === group) {
+    this.selectedTimeline = null; // Fecha se clicar no que já está aberto
+  } else {
+    this.selectedTimeline = group; // Abre o novo
+  }
+}
+
+
+ highlights = [
+  {
+    icon:'school',
+    title: 'Preceptoria',
+    text: 'Atuação no ensino de residentes no Hospital das Clínicas - UFMG.'
+  },
+  {
+    icon: 'biotech',
+    title: 'Pesquisa Científica',
+    text: 'Publicações em congressos nacionais e internacionais.'
+  },
+  // pode adicionar outros mais
+  /**
+   {
+   icon: '',
+   title: '',
+    text: ''
+  },
+   */
+  {
+    icon: 'trophy',
+    title: 'Certificações',
+    text: 'Cursos e certificações nacionais e internacionais.'
+  },
+ ];
+
+
+
+
+
+
 }

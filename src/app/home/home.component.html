@@ -107,67 +107,76 @@
 </section>
 
 
-<!--TRAJETORIA ACADEMICA E DESTAQUES-->
+<!--FORMAÇÃO ACADÊMICA E CARREIRA -->
 <section class="academic-path" id="trajetoria">
   <div class="academic-container">
     <div class="academic-header">
-      <h2 class="academic-title">Trajetória Acadêmica</h2>
-      <p class="academic-subtitle">Formação sólida e constante atualização científica.</p>
-    </div>
-    <div class="timeline-wrapper">
-      <div class="timeline-line"></div>
-      <div class="timeline-items">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <span class="timeline-year">20XX - 20XX</span>
-          <h4>Graduação em Medicina</h4>
-          <p>Faculdade de Medicina da UFMG</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <span class="timeline-year">20XX - 20XX</span>
-          <h4>Residência Médica</h4>
-          <p>Cirurgia Cardiovascular no HC-UFMG</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <span class="timeline-year">20XX - 20XX</span>
-          <h4>Contratação EBSERH</h4>
-          <p>Cirurgiã Cardiovascular no HC-UFMG</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <span class="timeline-year">20XX - Atual</span>
-          <h4>Mestrado / Fellow</h4>
-          <p>Foco em novas tecnologias cardiovasculares</p>
-        </div>
-      </div>
+      <h2 class="academic-title">Formação Acadêmica e Carreira</h2>
+      <p class="academic-subtitle">Clique nas categorias abaixo para explorar os detalhes da trajetória.</p>
     </div>
 
-    <div class="academic-highlights">
-      <div class="highlight-box">
-        <span class="material-symbols-outlined highlight-icon">
-          school
+    <div class="academic-wrapper-relative">
+      <button class="nav-btn prev" (click)="tabs.scrollBy({left: -200, behavior: 'smooth'})">
+        <span class="material-symbols-outlined">chevron_left</span>
+      </button>
+
+      <nav class="timeline-tabs" #tabs>
+        <button
+        *ngFor="let group of timeline"
+        (click)="selectTimeline(group)"
+        [class.active]="group === selectedTimeline">
+        <span class="material-symbols-outlined">
+          {{ selectedTimeline === group ? 'keyboard_arrow_down' : 'add' }}
         </span>
-        <h4>Preceptoria</h4>
-        <p>Atuação no ensino de novos residentes no Hospital das Clínicas.</p>
+        {{ group.label }}
+      </button>
+    </nav>
+    <button class="nav-btn next" (click)="tabs.scrollBy({left: 200, behavior: 'smooth'})">
+      <span class="material-symbols-outlined">chevron_right</span>
+    </button>
+  </div>
+  <!-- CONTEUDO DA TAB-->
+  <div class="timeline-cards" *ngIf="selectedTimeline">
+      <article class="timeline-card" *ngFor="let item of selectedTimeline.items">
+        <div class="timeline-card-header">
+          <h4>{{ item.title }}</h4>
+          <span class="timeline-year">{{ item.period }}</span>
+        </div>
+        <p class="timeline-subtitle">{{ item.subtitle }}</p>
+        <p class="timeline-desc">{{ item.desc }}</p>
+
+        <!-- EXTRAS -->
+        <div class="timeline-extras" *ngIf="item.extras && item.extras.length">
+          <h5>Atividades e Projetos</h5>
+          <ul>
+            <li *ngFor="let extra of item.extras">
+              <span class="extra-type">{{ extra.type }}</span>
+              <strong>{{ extra.title }}</strong>
+              <p>{{ extra.desc }}</p>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </div>
+    <div class="academic-wrapper-relative">
+      <button class="nav-btn prev" (click)="carousel.scrollBy({left: -300, behavior: 'smooth'})">
+        <span class="material-symbols-outlined">chevron_left</span>
+      </button>
+      <div class="academic-highlight-carousel" #carousel>
+        <div class="highlight-card-frame" *ngFor="let h of highlights">
+          <div class="highlight-inner">
+            <span class="material-symbols-outlined highlight-icon">{{ h.icon }}</span>
+            <h4>{{ h.title }}</h4>
+            <p>{{ h.text }}</p>
+          </div>
+        </div>
       </div>
-      <div class="highlight-box">
-        <span class="material-symbols-outlined highlight-icon">
-          biotech
-        </span>
-        <h4>Pesquisa Científica</h4>
-        <p>Publicações em congressos nacionais e internacionais sobre CEC.</p>
-      </div>
-      <div class="highlight-box">
-        <span class="material-symbols-outlined highlight-icon">
-          trophy
-        </span>
-        <h4>Títulos</h4>
-        <p>Membro Aspirante da Sociedade Brasileira de Cirurgia Cardiovascular.</p>
-      </div>
+      <button class="nav-btn next" (click)="carousel.scrollBy({left: 300, behavior: 'smooth'})">
+        <span class="material-symbols-outlined">chevron_right</span>
+      </button>
     </div>
 
+    <!-- GALERIA DE FOTOS -->
     <div class="academic-gallery-wrapper">
       <h2 class="academic-gallery-title">Vivência Acadêmica e Científica</h2>
       <p class="academic-gallery-subtitle">Ensino, Pesquisa e Prática.</p>
