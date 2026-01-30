@@ -206,6 +206,11 @@ export class HomeComponent implements AfterViewInit {
     title: 'Certificações',
     text: 'Cursos e certificações nacionais e internacionais.'
   },
+  {
+    icon: 'volunteer_activism',
+    title: 'Voluntariado',
+    text: 'Missões de trabalho voluntário em Cirurgia Cardiovascular'
+  },
  ];
 
 
