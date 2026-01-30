@@ -104,7 +104,7 @@ export class HomeComponent implements AfterViewInit {
       label: 'Graduação',
       items: [
         {
-          title: 'Graduação em Medicina',
+          title: 'Medicina',
           subtitle: 'Faculdade de Medicina da UFMG',
           period: '2013 - 2018',
           desc: 'Formação médica com sólida base clínica e cirúrgica.',
@@ -125,7 +125,7 @@ export class HomeComponent implements AfterViewInit {
       items: [
         {
           title: 'Residência Médica',
-          subtitle: 'Cirurgia Cardiovascular no HC-UFMG',
+          subtitle: 'Cirurgia Cardiovascular HC-UFMG',
           period: '2019 - 2024',
           desc: 'Treinamento intensivo em cirurgia cardiovascular.'
         }
@@ -139,8 +139,8 @@ export class HomeComponent implements AfterViewInit {
         {
           title: 'Mestrado',
           subtitle: 'Novas tecnologias cardiovasculares',
-          period: 'Atual',
-          desc: 'Foco em inovação e pesquisa.'
+          period: 'Em Andamento',
+          desc: 'Análise de Óbitos de Acordo Com a Fase De Cuidado em Transplante Cardíaco'
         }
       ]
     },
@@ -211,6 +211,16 @@ export class HomeComponent implements AfterViewInit {
     title: 'Voluntariado',
     text: 'Missões de trabalho voluntário em Cirurgia Cardiovascular'
   },
+  {
+    icon: 'monitor_heart',
+    title: 'ACLS',
+    text: 'Instrutora certificada de cursos ACLS'
+  },
+  {
+    icon: 'monitor_heart',
+    title: 'ACLS',
+    text: 'Instrutora certificada de cursos ACLS'
+  }
  ];
 
 

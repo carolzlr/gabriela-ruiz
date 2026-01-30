@@ -148,7 +148,7 @@
         (click)="selectTimeline(group)"
         [class.active]="group === selectedTimeline">
         <span class="material-symbols-outlined">
-          {{ selectedTimeline === group ? 'keyboard_arrow_down' : 'add' }}
+          {{ selectedTimeline === group ? 'keyboard_arrow_down' : 'keyboard_arrow_down' }}
         </span>
         {{ group.label }}
       </button>
