@@ -602,10 +602,12 @@ p {
   }
 
   /* 2. Configuração das Setas (Minimalistas) */
+  // mobile first
   .academic-wrapper-relative {
     position: relative;
     width: 100%;
     margin-bottom: 40px;
+    padding: 0 35px;
 
     .nav-btn {
       position: absolute;
@@ -620,7 +622,6 @@ p {
       justify-content: center;
       z-index: 10;
       cursor: pointer;
-      padding: 0;
       transition: all 0.4s ease;
 
       span {
@@ -634,8 +635,8 @@ p {
         transform: translateY(-50%) scale(1.2);
       }
 
-      &.prev { left: -15px; }
-      &.next { right: -15px; }
+      &.prev { left: 0px; }
+      &.next { right: 0px; }
     }
   }
 
@@ -796,42 +797,70 @@ p {
 
   /* --- MEDIA QUERIES (DESKTOP) --- */
   @media (min-width: 992px) {
-    padding: 100px 20px;
+    padding: 100px 0;
 
-    .academic-header .academic-title,
-    .academic-gallery-wrapper .academic-gallery-title { font-size: 42px; }
-
-    /* Destaques viram Grid */
-    .academic-highlight-carousel {
-      display: flex;
-      grid-template-columns: repeat(3, 1fr);
-      overflow-x: auto;
-      padding: 20px 0;
-      .highlight-card-frame { flex: 0 0 350; width: auto; }
-      & ~ .nav-btn { display: flex !important; opacity: 0.2; & :hover {opacity: 1;} }
+    .academic-container {
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    /* Tabs ocupando largura total */
+    .academic-header, .academic-title,
+    .academic-gallery-wrapper, .academic-gallery-title { font-size: 42px ;}
+
+    .academic-wrapper-relative {
+      padding: 0 60px;
+      margin-bottom: 50px;
+
+      .nav-btn {
+        display: flex !important;
+        opacity: 0.2;
+        & :hover { opacity: 1;}
+      }
+    }
+
+    .academic-wrapper-relative:has(.timeline-tabs) {
+      padding: 0;
+      max-width: 100%;
+
+      .nav-btn { display: none !important;}
+    }
+
     .timeline-tabs {
       padding: 10px 0;
       overflow: visible;
       justify-content: center;
+      display: flex;
+      width: 100%;
+      gap: 15%;
 
       button {
         flex: 1;
+        min-width: 0;
         justify-content: center;
-        &:hover { transform: scale(1.02); }
       }
     }
 
-    /* Esconde as setas das tabs no desktop */
-    .academic-wrapper-relative:has(.timeline-tabs) .nav-btn { display: none; }
-  }
-}
+    .academic-highlight-carousel, .academic-gallery {
+      gap: 24px;
+      padding: 10px 0 30px;
+      overflow-x: hidden;
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+      .highlight-card-frame, .academic-gallery-item {
+        flex: 0 0 calc((100% - 48px) / 3);
+        max-width: calc((100% - 48px) / 3);
+        scroll-snap-align: start;
+      }
+    }
+
+    .academic-gallery-item img {
+      height: 300px;
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 }
 
 /* ÁREAS DE ATUAÇÃO */
@@ -1153,16 +1182,14 @@ p {
     align-items: center;
   }
 
+  /* CABEÇALHO E TEXTO */
   .posts-header {
-    text-align: center; // Centralizado por padrão
-    margin-bottom: 30px;
-    display: flex;
-    flex-direction: column; // Título em cima, botão embaixo (ou vice-versa)
-    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
 
     .posts-title {
       font-family: 'Playfair Display', serif;
-      font-size: 42px;
+      font-size: 32px;
       color: var(--roxo);
       margin: 0;
     }
@@ -1172,30 +1199,29 @@ p {
     font-family: 'Montserrat', sans-serif;
     font-style: italic;
     color: var(--texto-secundario);
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
     max-width: 800px;
-    margin: 60px;
+    margin: 0 auto 30px;
     line-height: 1.6;
   }
 
   .posts-action {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 
     .btn-posts-contato {
-      padding: 16px 50px;
+      padding: 14px 40px;
       background-color: var(--roxo);
       border: 2px solid var(--roxo);
       border-radius: 50px;
       color: var(--branco);
       font-family: 'Montserrat', sans-serif;
       font-weight: 600;
-      font-size: 15px;
+      font-size: 14px;
       text-transform: uppercase;
       letter-spacing: 1px;
       transition: all 0.3s ease;
-      text-decoration: none;
       display: inline-block;
       cursor: pointer;
 
@@ -1207,124 +1233,109 @@ p {
     }
   }
 
-  /* CONTAINER DAS SETAS (VERSÃO DESKTOP) */
+  /* WRAPPER DAS SETAS */
   .posts-wrapper-relative {
     position: relative;
     width: 100%;
+    padding: 0 40px;
 
     .nav-btn {
       position: absolute;
-      top: 40%;
+      top: 50%;
       transform: translateY(-50%);
-      width: 50px;
-      height: 50px;
-      background: var(--branco);
-      border: 1px solid var(--rosa-2);
-      border-radius: 50%;
+      background: transparent;
+      border: none;
       color: var(--roxo);
-      cursor: pointer;
-      z-index: 10;
+      opacity: 0.3;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
+      z-index: 10;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.4s ease;
 
-      &:hover {
-        background: var(--roxo);
-        color: var(--branco);
+      span {
+        font-size: 45px;
+        font-weight: 200;
       }
 
-      &.prev { left: -25px; }
-      &.next { right: -25px; }
+      &:hover {
+        opacity: 1;
+        color: var(--rosa-2);
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      &.prev { left: -20px; }
+      &.next { right: -20px; }
     }
   }
+}
 
-  /* O TRILHO DE CARDS */
+  /* CARROSSEL DE CARDS */
   .posts-grid {
     display: flex;
     gap: 30px;
     overflow-x: auto;
-    scroll-behavior: smooth;
+    //scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
-    padding: 20px 0 40px;
-    width: 100%;
+    //padding: 20px 0 40px;
+    //width: 100%;
     scrollbar-width: none;
     &::-webkit-scrollbar { display: none; }
   }
 
-  /* O CARD INDIVIDUAL */
+  /* CARD INDIVIDUAL */
   .post-card {
-    // DESKTOP: exatamente 3 cards por vez (Cálculo: (100% - total_gaps) / 3)
-    flex: 0 0 calc((100% - 60px)/3);
-    scroll-snap-align: start;
-    //scroll-snap-stop: always;
+    flex: 0 0 100%; // mobile
+    max-width: 350px;
+    scroll-snap-align: center;
     text-decoration: none;
     background: var(--branco);
     padding: 15px;
     border-radius: 28px;
     display: flex;
     flex-direction: column;
-    transition: transform 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     min-width: 0;
-    //box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-
-    // Hover somente em desktop
-    @media (hover: hover) {
-      &:hover {
-        transform: translateY(-10px);
-
-        .img-container .post-overlay {
-          opacity: 1;
-          visibility: visible;
-        }
-
-        .img-container img {
-          transform: scale(1.05);
-        }
-      }
-    }
 
     .img-container {
       position: relative;
       width: 100%;
-      height: 320px;
+      height: 280px;
       border-radius: 20px;
       overflow: hidden;
+      margin-bottom: 20px;
+      aspect-ratio: 1 / 1;
       margin-bottom: 20px;
 
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: top;
-        transition: transform 0.5s ease;
+        object-position: center;
+        transition: transform 0.6s ease;
       }
 
-      // Escondido por padrão no desktop
       .post-overlay {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(138, 80, 109, 0.5);
-        backdrop-filter: blur(3px);
+        inset: 0;
+        background: rgba(139, 44, 62, 0.6);
+        backdrop-filter: blur(4px);
         display: flex;
         align-items: center;
         justify-content: center;
         opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
+        transition: opacity 0.3s ease;
 
         .btn-overlay {
           background: var(--branco);
           color: var(--roxo);
-          padding: 10px 22px;
+          padding: 10px 20px;
           border-radius: 50px;
           font-weight: 700;
+          font-size: 12px;
           text-transform: uppercase;
-          font-size: 13px;
         }
       }
     }
@@ -1335,83 +1346,45 @@ p {
       font-size: 16px;
       color: var(--roxo);
       line-height: 1.4;
-      margin-bottom: 15px;
-      flex-grow: 1;
       text-align: center;
+      padding: 0 10px 10px;
     }
 
     .btn-mobile-read {
-      display: none; // Esconde o botão na versão desktop
-      text-align: center;
-      padding: 14px;
-      background: var(--rosa-1);
-      color: var(--roxo);
+      background: var(--roxo);
+      color: var(--branco);
+      padding: 12px;
       border-radius: 50px;
-      font-family: 'Montserrat', sans-serif;
+      text-align: center;
       font-weight: 700;
-      font-size: 13px;
       text-transform: uppercase;
+      font-size: 12px;
       margin-top: auto;
-      //border: none;
-      border: 1px solid var(--rosa-2);
+    }
+
+    & :hover {
+      @media (min-width: 992px) {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(139, 44, 62, 0.1);
+        .img-container img { transform: scale(1.1);}
+        .post-overlay { opacity: 1;}
+      }
     }
   }
-}
 
-/* RESPONSIVIDADE */
-@media (max-width: 768px) {
+
+/* RESPONSIVIDADE DESKTOP */
+@media (min-width: 992px) {
   .posts {
+    .posts-header, .posts-title { font-size: 42px; }
+    .posts-text { font-size: 18px; margin-bottom: 40px;}
 
-    .posts-grid {
-      gap: 20px;
-      padding: 10px 10px 40px;
-      overflow-x: auto !important;
-      scrollbar-width: none !important;
-      -ms-overflow-style: none;
-
-      &::-webkit-scrollbar {
-        display: none !important;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background-color: var(--rosa-3);
-        border-radius: 10px;
-      }
-    }
-
-    .post-card {
-      flex: 0 0 100% !important;
-      width: 85% !important;
-      scroll-snap-align: center;
-      transform: none !important;
-
-      .img-container {
-        height: 280px;
-
-        .post-overlay {
-          display: none !important;
-        }
-        img {
-          transform: none !important;
-        }
-      }
-
-      .post-caption {
-        text-align: center;
-      }
-
-      .btn-mobile-read {
-        display: block !important;
-        background: var(--roxo);
-        color: var(--branco);
-        padding: 12px;
-        border-radius: 50px;
-        text-align: center;
-        font-weight: 700;
-        text-transform: uppercase;
-        font-size: 12px;
-        margin-top: 10px;
-      }
+    .post-card, .posts-grid {
+      flex: 0 0 calc((100% - 60px) / 3); // para exibir exatamente 3 cards por vez
+      scroll-snap-align: start;
+      max-width: none;
+      .img-container { aspect-ratio: 1 / 1;}
+      .btn-mobile-read { display: none;} // não exibe o botão do mobile no desktop
     }
   }
 }
