@@ -125,7 +125,7 @@ export class HomeComponent implements AfterViewInit {
       items: [
         {
           title: 'Residência Médica',
-          subtitle: 'Cirurgia Cardiovascular HC-UFMG',
+          subtitle: 'Cirurgia Cardiovascular (HC-UFMG)',
           period: '2019 - 2024',
           desc: 'Treinamento intensivo em cirurgia cardiovascular.'
         }
