@@ -643,21 +643,22 @@ p {
   /* 3. Carrossel de Destaques */
   .academic-highlight-carousel {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     overflow-x: auto;
-    padding: 10px 10px 20px;
+    padding: 20px 0;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
     &::-webkit-scrollbar { display: none; }
 
     .highlight-card-frame {
-      flex: 0 0 280px;
+      flex: 0 0 100%;
       scroll-snap-align: center;
       background: var(--branco);
       padding: 10px;
       border-radius: 30px;
       border: 1px solid var(--rosa-2);
       box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+      min-width: 0;
 
       .highlight-inner {
         background: var(--rosa-1);
@@ -668,7 +669,7 @@ p {
 
         .highlight-icon { font-size: 32px; color: var(--roxo); margin-bottom: 15px; display: block; }
         h4 { font-family: 'Playfair Display', serif; color: var(--roxo); font-size: 18px; margin-bottom: 10px; }
-        p { font-size: 13px; color: var(--texto-secundario); line-height: 1.5; margin: 0; }
+        p { font-family: 'Montserrat', sans-serif; font-size: 13px; color: var(--texto-secundario); line-height: 1.5; margin: 0; font-style: normal; }
       }
     }
   }

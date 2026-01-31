@@ -125,7 +125,7 @@ export class HomeComponent implements AfterViewInit {
       items: [
         {
           title: 'Residência Médica',
-          subtitle: 'Cirurgia Cardiovascular (HC-UFMG)',
+          subtitle: 'Cirurgia Cardiovascular no HC-UFMG',
           period: '2019 - 2024',
           desc: 'Treinamento intensivo em cirurgia cardiovascular.'
         }
@@ -139,8 +139,8 @@ export class HomeComponent implements AfterViewInit {
         {
           title: 'Mestrado',
           subtitle: 'Novas tecnologias cardiovasculares',
-          period: 'Em Andamento',
-          desc: 'Análise de Óbitos de Acordo Com a Fase De Cuidado em Transplante Cardíaco'
+          period: 'Atual',
+          desc: 'Foco em inovação e pesquisa.'
         }
       ]
     },
@@ -206,21 +206,6 @@ export class HomeComponent implements AfterViewInit {
     title: 'Certificações',
     text: 'Cursos e certificações nacionais e internacionais.'
   },
-  {
-    icon: 'volunteer_activism',
-    title: 'Voluntariado',
-    text: 'Missões de trabalho voluntário em Cirurgia Cardiovascular'
-  },
-  {
-    icon: 'monitor_heart',
-    title: 'ACLS',
-    text: 'Instrutora certificada de cursos ACLS'
-  },
-  {
-    icon: 'monitor_heart',
-    title: 'ACLS',
-    text: 'Instrutora certificada de cursos ACLS'
-  }
  ];
 
 
