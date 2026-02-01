@@ -502,6 +502,12 @@ p {
         background-color: transparent;
         color: var(--roxo);
       }
+
+      @media (max-width: 768px) {
+        width: fit-content;
+        text-align: center;
+        margin: 0 auto;
+      }
     }
 
     /* Locais de Atendimento */
@@ -1147,16 +1153,19 @@ p {
 
     .btn-modal-wpp {
       display: inline-block;
-      padding: 15px 35px;
+      padding: 12px 40px;
       background-color: var(--roxo);
       color: white;
       text-decoration: none;
       font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 2px;
+      font-weight: 300;
       border-radius: 50px;
-      transition: 0.3s;
+      transition: all 0.3s ease;
       border: 2px solid var(--roxo);
-      &:hover { background: transparent; color: var(--roxo); transform: translateY(-3px); }
+      text-transform: uppercase;
+      &:hover { background: transparent; color: var(--roxo); }
     }
   }
 
@@ -1178,12 +1187,16 @@ p {
       .mobile-hint {
         display: inline-block;
         margin-top: 15px;
-        padding: 10px 25px;
+        padding: 12px 40px;
+        background-color: var(--roxo);
         border: 1px solid var(--roxo);
+        color: var(--branco);
         border-radius: 50px;
-        color: var(--roxo);
+        font-weight: 300;
+        font-size: 13px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
         font-family: 'Montserrat', sans-serif;
-        font-weight: 600;
       }
       &:hover { transform: none; }
     }
@@ -1375,13 +1388,16 @@ p {
     .btn-mobile-read {
       background: var(--roxo);
       color: var(--branco);
-      padding: 12px;
+      padding: 12px 40px;
       border-radius: 50px;
       text-align: center;
-      font-weight: 700;
+      font-weight: 300;
       text-transform: uppercase;
-      font-size: 12px;
+      font-size: 13px;
       margin-top: auto;
+      border: 2px solid var(--roxo);
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 2px;
     }
 
     & :hover {

@@ -206,6 +206,26 @@ export class HomeComponent implements AfterViewInit {
     title: 'Certificações',
     text: 'Cursos e certificações nacionais e internacionais.'
   },
+  {
+    icon: 'trophy',
+    title: 'Certificações',
+    text: 'Cursos e certificações nacionais e internacionais.'
+  },
+  {
+    icon: 'trophy',
+    title: 'Certificações',
+    text: 'Cursos e certificações nacionais e internacionais.'
+  },
+  {
+    icon: 'trophy',
+    title: 'Certificações',
+    text: 'Cursos e certificações nacionais e internacionais.'
+  },
+  {
+    icon: 'trophy',
+    title: 'Certificações',
+    text: 'Cursos e certificações nacionais e internacionais.'
+  },
  ];
 
 
