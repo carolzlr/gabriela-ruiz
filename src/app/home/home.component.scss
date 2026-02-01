@@ -359,18 +359,21 @@ p {
   .btn-hero-outline {
     display: inline-block;
     padding: 12px 40px;
+    background-color: var(--roxo);
     border: 2px solid var(--roxo);
     border-radius: 50px;
-    color: var(--roxo);
+    color: var(--branco);
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 2px;
     transition: all 0.3s ease;
+    font-weight: 300;
+    font-family: 'Montserrat', sans-serif;
 
     &:hover {
-      background: var(--roxo);
-      color: #fff;
+      background: transparent;
+      color: var(--roxo);
     }
   }
 }
@@ -474,22 +477,22 @@ p {
     .about-btn-wrapper {
       width: 100%;
       display: flex;
-      justify-content: center;
+      justify-content: left;
       margin: 40px 0;
       clear: both;
     }
 
     .btn-about {
-      padding: 16px 50px;
+      padding: 12px 40px;
       background-color: var(--roxo);
       border: 2px solid var(--roxo);
       border-radius: 50px;
       color: var(--branco);
       font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 15px;
+      font-weight: 300;
+      font-size: 13px;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       transition: all 0.3s ease;
       text-decoration: none;
       display: inline-block;
@@ -509,7 +512,6 @@ p {
       width: 100%;
       margin-top: 20px;
       padding-top: 30px;
-      border-top: 1px solid var(--linha-divisoria);
 
       .locations-title {
         font-family: 'Montserrat', sans-serif;
@@ -536,7 +538,7 @@ p {
         .material-symbols-outlined { color: var(--roxo); font-size: 24px; }
 
         strong { display: block; font-family: 'Montserrat', sans-serif; font-size: 17px; color: var(--texto-principal); }
-        span { display: block; font-size: 14px; color: var(--texto-secundario); font-style: italic; }
+        span { display: block; font-size: 14px; color: var(--texto-secundario); font-style:normal; }
       }
     }
   }
@@ -929,28 +931,24 @@ p {
 
     /* Padronizado com about-btn-wrapper */
     .btn-areas-contato {
-      padding: 16px 50px;
+      padding: 12px 40px;
       background-color: var(--roxo);
       border: 2px solid var(--roxo);
       border-radius: 50px;
       color: var(--branco);
       font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 15px;
+      font-weight: 300;
+      font-size: 13px;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       transition: all 0.3s ease;
       text-decoration: none;
       display: inline-block;
       position: relative;
-      margin-top: 20px;
-      cursor: pointer;
 
       &:hover {
         background-color: transparent;
         color: var(--roxo);
-        transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
       }
     }
   }
@@ -1235,19 +1233,19 @@ p {
     margin-bottom: 50px;
 
     .btn-posts-contato {
-      padding: 14px 40px;
+      padding: 12px 40px;
       background-color: var(--roxo);
       border: 2px solid var(--roxo);
       border-radius: 50px;
       color: var(--branco);
       font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 14px;
+      font-weight: 300;
+      font-size: 13px;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       transition: all 0.3s ease;
       display: inline-block;
-      cursor: pointer;
+      text-decoration: none; // tira o sublinhado
 
       &:hover {
         background-color: transparent;
