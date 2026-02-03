@@ -146,14 +146,21 @@ export class HomeComponent implements AfterViewInit {
     },
 
     {
-      id: 'carreira',
-      label: 'Carreira',
+      id: 'profissional',
+      label: 'Profissional',
       items: [
         {
           title: 'EBSERH',
           subtitle: 'Cirurgia Cardiovascular no HC-UFMG',
           period: '2024 - Atual',
-          desc: 'Atuação hospitalar universitária.'
+          desc: 'Atuação hospitalar universitária.',
+          extras: [
+            {
+              type: 'Preceptoria',
+              title: 'Preceptoria de Resisdentes',
+              desc: 'Atuação no ensino de residentes'
+            }
+          ]
         },
         {
           title: 'CTS',
