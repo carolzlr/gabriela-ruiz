@@ -207,9 +207,9 @@ export class HomeComponent implements AfterViewInit {
     text: 'Cursos e certificações nacionais e internacionais.'
   },
   {
-    icon: 'trophy',
-    title: 'Certificações',
-    text: 'Cursos e certificações nacionais e internacionais.'
+    icon: 'volunteer_activism',
+    title: 'Trabalho Voluntário',
+    text: 'Missões humanitárias de cirurgia cardíaca.'
   },
   {
     icon: 'trophy',
