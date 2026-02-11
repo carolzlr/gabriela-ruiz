@@ -1562,131 +1562,124 @@ section {
 /* CONTATOS E MAPA DO SITE */
 .site-contact {
   background-color: var(--branco);
-  border-top: 1px solid var(--linha-divisoria);
-  padding: 80px 20px; // Reduzi um pouco o padding para a imagem respirar mais
-
-  .site-contact-container {
-    max-width: 1300px; // Aumentado para dar mais palco à imagem
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px;
-  }
-
-  .site-contact-title {
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 40px;
-    color: var(--roxo);
-    font-weight: 700;
-  }
-
-  /* --- COLUNA 1: CONTATO --- */
-  .site-contact-info {
-    flex: 1;
-    z-index: 2;
-
-    .site-contact-item {
-      display: flex;
-      align-items: flex-start; // Alinha pelo topo para endereços longos
-      gap: 15px;
-      margin-bottom: 20px;
-
-      .material-symbols-outlined {
-        color: var(--roxo);
-        font-size: 24px;
-      }
-
-      p {
-        font-size: 15px;
-        color: var(--texto-principal);
-        margin: 0;
-        line-height: 1.4;
-      }
-    }
-  }
-
-  /* --- COLUNA 2: IMAGEM CENTRAL (Preenchimento) --- */
-  .site-contact-brand {
-    flex: 3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    padding: 0 20px;
-
-    .site-contact-brand-img {
-      width: 100%;
-      max-width: 200px;
-      height: auto;
-      object-fit: contain;
-      filter: drop-shadow(0 5px 15px rgba(0,0,0,0.03));
-      transform: scale(1.1);
-      transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-    }
-  }
-
-  /* --- COLUNA 3: MAPA DO SITE --- */
-  .site-contact-sitemap {
-    flex: 1;
-    text-align: right;
-
-    .site-contact-nav-list {
-      list-style: none;
-      padding: 0;
-
-      li { margin-bottom: 15px; }
-
-      a {
-        text-decoration: none;
-        font-size: 14px;
-        font-weight: 500;
-        color: var(--texto-principal);
-        padding-bottom: 4px;
-        border-bottom: 2px solid transparent; // Reserva o espaço do sublinhado
-        transition: all 0.3s ease;
-
-        &:hover {
-          color: var(--roxo);
-          font-weight: 700; // Destaque em negrito
-          border-bottom: 2px solid var(--roxo); // Sublinhado colorido
-        }
-      }
-    }
-  }
+  padding: 80px 20px 60px;
+  border-top: 1px solid #f2f2f2;
 }
 
-/* RESPONSIVIDADE */
-@media (max-width: 1024px) {
-  .site-contact {
-    .site-contact-container {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 60px;
-    }
-
-    .site-contact-info, .site-contact-sitemap {
-      text-align: center;
-      .site-contact-item { justify-content: center; }
-      a:hover { border-bottom: none; } // Remove sublinhado no mobile para evitar saltos
-    }
-
-    .site-contact-brand {
-      order: -1;
-      width: 80%;
-
-
-      .site-contact-brand-img {
-        align-items: center;
-      }
-    }
-  }
+.site-contact-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
+
+.site-social-icons {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.site-social-icons a {
+  color: var(--roxo);
+  transition: color 0.3s ease;
+}
+
+.site-social-icons a:hover {
+  color: var(--rosa-3);
+}
+
+.site-social-icons .material-symbols-outlined,
+.site-social-icons svg {
+  font-size: 22px;
+  font-variation-settings: 'wght' 250;
+}
+
+.site-contact-brand {
+  margin-bottom: 35px;
+}
+
+.site-contact-brand-img {
+  max-width: 180px;
+  height: auto;
+}
+
+.site-contact-info {
+  margin-bottom: 50px;
+}
+
+.address-main {
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+  color: var(--texto-secundario);
+  font-size: clamp(14px, 2vw, 18px);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.address-sub {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--roxo);
+  line-height: 1.4;
+  text-align: center;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.contact-cta {
+  font-size: 14px;
+  color: var(--roxo);
+}
+
+.contact-cta strong {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: var(--roxo);
+}
+
+
+.site-contact-nav-list {
+  font-family: 'Playfair Display', serif;
+  color: var(--roxo);
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.site-contact-nav-list a {
+  text-decoration: none;
+  font-size: 12px;
+  color: var(--roxo);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.site-contact-nav-list a:hover {
+  color: var(--rosa-2);
+  border-bottom: 1px solid var(--roxo);
+}
+
+
+
+
 
 .footer {
+  padding-top: 20px;
+  padding-bottom: 40px;
   padding: 30px 20px;
   background: var(--branco);
   display: flex;
