@@ -111,14 +111,28 @@ export class HomeComponent implements AfterViewInit {
           extras: [
             {
               type: 'Iniciação Científica',
-              title: 'Projeto de Pesquisa',
-              desc: 'Participação em projeto de iniciação científica.'
+              title: 'Programa de Rastreamento de Valvopatia Reumática (PROVAR)',
+              desc: 'Sob orientação do Professor Bruno Ramos Nascimento e da Professora Maria do Carmo Nunes, participou do rastreamento ecocardiográfico de crianças de escolas públicas em Belo Horizonte/MG, tendo colaborado na escrita e publicação de artigos científicos, assim como participações em congressos nacionais e internacionais.'
+            },
+            {
+              type: 'Monitoria',
+              title: '',
+              desc: 'Foi monitora das disciplinas de Anatomia da Faculdade de Medicina da UFMG, durante 5 anos '
+            },
+            {
+              type: 'Extensão Acadêmica',
+              title: '',
+              desc: 'Paticipou de diversas ligas acadêmicas, como a de Cardiologia, Clínica Médica, Feridas e Cirurgia.'
+            },
+            {
+              type: 'Intercâmbio',
+              title: '',
+              desc: 'Estágio internacional em Cirurgia Cardiovascular no Norrlands Universitetssjukhus, em Umeå, na Suécia.'
             }
           ]
         }
       ]
     },
-
     {
       id: 'residencia',
       label: 'Residência',
@@ -127,7 +141,34 @@ export class HomeComponent implements AfterViewInit {
           title: 'Residência Médica',
           subtitle: 'Cirurgia Cardiovascular no HC-UFMG',
           period: '2019 - 2024',
-          desc: 'Treinamento intensivo em cirurgia cardiovascular.'
+          desc: 'Treinamento intensivo em cirurgia cardiovascular.',
+          extras: [
+            {
+              type: 'Estágio Optativo',
+              title: 'Cirurgia Cardiovascular Pediátrica',
+              desc: 'Hospital da Beneficiência Portuguesa - São Paulo/SP'
+            },
+            {
+              type: 'Estágio Optativo',
+              title: 'Cirurgia Cardiovascular Pediátrica',
+              desc: 'Hospital da Criança - São José do Rio Preto/SP'
+            },
+            {
+              type: 'Estágio Optativo',
+              title: 'Transplante Cardíaco e Cirurgias Cardíacas Complexas',
+              desc: 'Equipe Lev Cardiovascular - São Paulo/SP'
+            },
+            {
+              type: 'Estágio Optativo',
+              title: 'Cirurgia de Aorta e Endovascular',
+              desc: 'Hospital de Clínicas - Porto Alegre/RS'
+            },
+            {
+              type: 'Estágio Internacional',
+              title: '',
+              desc: 'Hospital Universitário de Coimbra - Portugal'
+            }
+          ]
         }
       ]
     },
@@ -138,9 +179,9 @@ export class HomeComponent implements AfterViewInit {
       items: [
         {
           title: 'Mestrado',
-          subtitle: 'Novas tecnologias cardiovasculares',
+          subtitle: 'Qualidade Assistencial em Transplante Cardíaco',
           period: 'Atual',
-          desc: 'Foco em inovação e pesquisa.'
+          desc: 'Mestrado em andamento no Programa de Pós Graduação em Cirurgia e Oftalmologia da Faculdade de Medicina da UFMG'
         }
       ]
     },
@@ -151,28 +192,45 @@ export class HomeComponent implements AfterViewInit {
       items: [
         {
           title: 'EBSERH',
-          subtitle: 'Cirurgia Cardiovascular no HC-UFMG',
+          subtitle: 'Cirurgiã Cardiovascular no HC-UFMG',
           period: '2024 - Atual',
-          desc: 'Atuação hospitalar universitária.',
+          desc: 'Membro da equipe de cirurgia cardiovascular, transplante cardíaco, dispositivos de estimulação cardíaca e transplante pulmonar, atuando em cirurgias eletivas e de urgência',
           extras: [
             {
               type: 'Preceptoria',
               title: 'Preceptoria de Resisdentes',
               desc: 'Atuação no ensino de residentes'
+            },
+            {
+              type: 'Pesquisa Científica',
+              title: '',
+              desc: 'Atua no grupo de pesquisa em cirurgia cardiovascular, colaborando no banco de dados do serviço'
             }
           ]
         },
         {
-          title: 'CTS',
-          subtitle: 'Plantonista IAM',
+          title: 'Centro de Telessaúde do Hospital das Clínicas - UFMG',
+          subtitle: 'Plantonista da Linha de Cuidados em Infarto Agudo do Miocárdio',
           period: '2024 - Atual',
-          desc: 'Atuação como plantonista remoto.'
+          desc: 'Prestação de serviços de teleconsultoria para rede de infarto do Ministério da Saúde.'
         },
         {
-          title: 'Bedside',
+          title: 'Bedside Medicine',
           subtitle: 'Redatora',
           period: '2024 - Atual',
-          desc: 'Produção de conteúdo médico.'
+          desc: 'Produção de conteúdo educativo nas áreas de Cardiointensivismo e Cirurgia Cardiovascular'
+        },
+        {
+          title: 'Hospital Orizonti',
+          subtitle: 'Plantonista da Unidade Coronariana',
+          period: '2023 - Atual',
+          desc: 'Produção de conteúdo educativo nas áreas de Cardiointensivismo e Cirurgia Cardiovascular'
+        },
+        {
+          title: 'Hospital Orizonti',
+          subtitle: 'Atendimentos Ambulatoriais',
+          period: '2024 - Atual',
+          desc: ''
         }
       ]
     }
@@ -193,12 +251,12 @@ export class HomeComponent implements AfterViewInit {
   {
     icon:'school',
     title: 'Preceptoria',
-    text: 'Atuação no ensino de residentes no Hospital das Clínicas - UFMG.'
+    text: 'Atuação no ensino de residentes no Hospital das Clínicas (UFMG) e Hospital Felício Rocho.'
   },
   {
     icon: 'biotech',
     title: 'Pesquisa Científica',
-    text: 'Publicações em congressos nacionais e internacionais.'
+    text: 'Publicações em revistas científicas de impacto, apresentações em congressos Nacionais e Internacionais'
   },
   // pode adicionar outros mais
   /**
@@ -219,18 +277,13 @@ export class HomeComponent implements AfterViewInit {
     text: 'Missões humanitárias de cirurgia cardíaca.'
   },
   {
-    icon: 'trophy',
-    title: 'Certificações',
+    icon: 'cardiology',
+    title: 'ACLS',
     text: 'Cursos e certificações nacionais e internacionais.'
   },
   {
-    icon: 'trophy',
-    title: 'Certificações',
-    text: 'Cursos e certificações nacionais e internacionais.'
-  },
-  {
-    icon: 'trophy',
-    title: 'Certificações',
+    icon: 'school',
+    title: 'Professora Universitária',
     text: 'Cursos e certificações nacionais e internacionais.'
   },
  ];
