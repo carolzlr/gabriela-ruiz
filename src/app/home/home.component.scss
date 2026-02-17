@@ -1246,7 +1246,7 @@ section {
       cursor: pointer;
       display: flex; align-items: center; justify-content: center;
       transition: 0.3s;
-      &:hover { background: var(--roxo); color: white; }
+      //&:hover { background: var(--roxo); color: white; } botão X fica só roxo sem borda
     }
 
     .modal-body {

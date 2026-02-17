@@ -22,7 +22,7 @@ export class HomeComponent implements AfterViewInit {
     },
     {
       title: 'Plastia ou Troca Valvares',
-      img: 'images/valvar.jpg',
+      img: 'images/valvas1.jpg',
       desc: 'Cirurgias para reparo (plastia) ou substituição de válvulas cardíacas acometidas por estenose ou insuficiência.'
     },
     {
@@ -42,7 +42,7 @@ export class HomeComponent implements AfterViewInit {
     },
     {
       title: 'Marcapassos',
-      img: 'images/marcapasso.jpg',
+      img: 'images/marcapasso2.png',
       desc: 'Implante de dispositivos eletrônicos para correção de distúrbios do ritmo cardíaco (bradicardias).'
     },
     {
@@ -222,12 +222,12 @@ export class HomeComponent implements AfterViewInit {
         },
         {
           title: 'Hospital Orizonti',
-          subtitle: 'Plantonista da Unidade Coronariana',
+          subtitle: 'Plantonista da Unidade Coronariana e Atendimentos Ambulatoriais',
           period: '2023 - Atual',
-          desc: 'Produção de conteúdo educativo nas áreas de Cardiointensivismo e Cirurgia Cardiovascular'
+          desc: ''
         },
         {
-          title: 'Hospital Orizonti',
+          title: 'Centro de Especialidades - Hospital Evangélico',
           subtitle: 'Atendimentos Ambulatoriais',
           period: '2024 - Atual',
           desc: ''
