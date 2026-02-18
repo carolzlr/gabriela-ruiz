@@ -22,7 +22,7 @@ export class HomeComponent implements AfterViewInit {
     },
     {
       title: 'Plastia ou Troca Valvares',
-      img: 'images/valvas1.jpg',
+      img: 'images/valva3.png',
       desc: 'Cirurgias para reparo (plastia) ou substituição de válvulas cardíacas acometidas por estenose ou insuficiência.'
     },
     {
@@ -32,12 +32,12 @@ export class HomeComponent implements AfterViewInit {
     },
     {
       title: 'Transplante Cardíaco',
-      img: 'images/transplante.jpg',
+      img: 'images/transplante1.png',
       desc: 'Tratamento definitivo para insuficiência cardíaca avançada, realizado por equipe especializada e capacitada.'
     },
     {
       title: 'Aneurismas de Aorta',
-      img: 'images/aneurisma.jpg',
+      img: 'images/aneurisma1.jpg',
       desc: 'Correção cirúrgica ou endovascular de dilatações na artéria aorta, visando prevenir rupturas e complicações graves.'
     },
     {
@@ -47,7 +47,7 @@ export class HomeComponent implements AfterViewInit {
     },
     {
       title: 'ECMO',
-      img: 'images/ecmo.jpg',
+      img: 'images/ecmo1.png',
       desc: 'Suporte de vida extracorpóreo utilizado em casos graves de falência cardíaca ou respiratória como ponte para recuperação ou transplante.'
     },
     {
