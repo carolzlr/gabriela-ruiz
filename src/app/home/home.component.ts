@@ -52,7 +52,7 @@ export class HomeComponent implements AfterViewInit {
     },
     {
       title: 'Consultas Presenciais e Online',
-      img: 'images/consulta.jpg',
+      img: 'images/consulta1.jpeg',
       desc: 'Atendimento clínico humanizado para diagnóstico, segunda opinião médica e acompanhamento pós-operatório.'
     }
   ]
@@ -208,6 +208,14 @@ export class HomeComponent implements AfterViewInit {
             }
           ]
         },
+        /**
+         * {
+          title: 'Faculdade de Medicina - UFMG',
+          subtitle: 'Professor Substituto - Departamento de Cirurgia',
+          period: '2024 - Atual',
+          desc: 'Professor substituto das disciplinas XXXX'
+        },
+         */
         {
           title: 'Centro de Telessaúde do Hospital das Clínicas - UFMG',
           subtitle: 'Plantonista da Linha de Cuidados em Infarto Agudo do Miocárdio',
