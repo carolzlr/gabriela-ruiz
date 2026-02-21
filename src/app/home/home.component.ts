@@ -275,9 +275,9 @@ export class HomeComponent implements AfterViewInit {
   },
    */
   {
-    icon: 'trophy',
-    title: 'Certificações',
-    text: 'Cursos e certificações nacionais e internacionais.'
+    icon: 'star_shine',
+    title: 'Especialista',
+    text: 'Em Cirurgia Cardiovascular certificada pela Sociedade Brasileira de Cirurgia Cardiovascular.'
   },
   {
     icon: 'volunteer_activism',
@@ -287,12 +287,12 @@ export class HomeComponent implements AfterViewInit {
   {
     icon: 'cardiology',
     title: 'ACLS',
-    text: 'Cursos e certificações nacionais e internacionais.'
+    text: 'Instrutora certificada.'
   },
   {
     icon: 'school',
     title: 'Professora Universitária',
-    text: 'Cursos e certificações nacionais e internacionais.'
+    text: 'Faculdade de Medicina UFMG.'
   },
  ];
 
