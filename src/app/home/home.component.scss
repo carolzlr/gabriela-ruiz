@@ -616,11 +616,13 @@ section {
 
   /* 2. Configuração das Setas (Minimalistas) */
   // mobile first
-  .academic-wrapper-relative {
+  .academic-wrapper-relative, .tabs-wrapper {
     position: relative;
     width: 100%;
     margin-bottom: 40px;
     padding: 0 35px;
+  }
+
 
     .academic-subtext {
       font-family: 'Montserrat', sans-serif;
@@ -636,34 +638,33 @@ section {
     }
 
     .nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: transparent;
-      border: none;
-      color: var(--roxo);
-      opacity: 0.3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
-      cursor: pointer;
-      transition: all 0.4s ease;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--roxo);
+    opacity: 0.3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    cursor: pointer;
+    transition: all 0.4s ease;
 
-      span {
-        font-size: 40px;
-        font-weight: 200;
-      }
-
-      &:hover {
-        opacity: 1;
-        color: var(--rosa-2);
-        transform: translateY(-50%) scale(1.2);
-      }
-
-      &.prev { left: 0px; }
-      &.next { right: 0px; }
+    span {
+      font-size: 40px;
+      font-weight: 200;
     }
+
+    &:hover {
+      opacity: 1;
+      color: var(--rosa-2);
+      transform: translateY(-50%) scale(1.2);
+    }
+
+    &.prev { left: 0; }
+    &.next { right: 0; }
   }
 
   /* 3. Carrossel de Destaques */
@@ -711,6 +712,7 @@ section {
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
+
     &::-webkit-scrollbar { display: none; }
 
     button {
@@ -719,7 +721,7 @@ section {
       background: var(--branco);
       border: 1px solid var(--rosa-2);
       border-radius: 50px;
-      padding: 12px 10px;
+      padding: 12px 16px;
       font-family: 'Montserrat', sans-serif;
       font-weight: 600;
       font-size: 13px;
@@ -727,19 +729,29 @@ section {
       color: var(--roxo);
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       cursor: pointer;
       white-space: nowrap;
       transition: all 0.3s ease;
 
-      span { font-size: 18px; transition: transform 0.3s ease; }
+      span {
+        font-size: 18px;
+        transition: transform 0.3s ease;
+      }
+
       &.active {
         background: var(--roxo);
         color: var(--branco);
         border-color: var(--roxo);
+
         span { transform: rotate(180deg); }
       }
-      &:hover:not(.active) { background: var(--rosa-2); color: var(--branco); }
+
+      &:hover:not(.active) {
+        background: var(--rosa-2);
+        color: var(--branco);
+      }
     }
   }
 
@@ -792,6 +804,7 @@ section {
         display: block;
         font-size: clamp(14px, 1vw + 10px, 16px);
       }
+
       .timeline-desc {
         font-family: 'Montserrat', sans-serif;
         color: var(--texto-secundario);
@@ -812,6 +825,7 @@ section {
           font-weight: 700;
           font-size: clamp(15px, 0.5vw + 13px, 16px);
         }
+
         ul {
           list-style: none;
           padding: 0;
@@ -829,23 +843,26 @@ section {
             border-radius: 10px;
             margin-right: 8px;
           }
+
           strong {
             font-family: 'Montserrat', sans-serif;
             //font-family: 'Playfair Display', serif;
             color: var(--texto-principal);
             font-size: clamp(13px, 0.5vw + 8px, 10px);
             //font-weight: normal;
-          }
-          p {
-            font-family: 'Montserrat', sans-serif;
-            font-size: clamp(12px, 0.5vw + 10px, 13px);
-            color: var(--texto-secundario);
-            margin-top: 5px;
+            }
+
+            p {
+              font-family: 'Montserrat', sans-serif;
+              font-size: clamp(12px, 0.5vw + 10px, 13px);
+              color: var(--texto-secundario);
+              margin-top: 5px;
+            }
           }
         }
       }
     }
-  }
+
 
   /* 6. Galeria de Fotos */
   .academic-gallery-wrapper {
@@ -914,79 +931,96 @@ section {
     }
   }
 
-  /* --- MEDIA QUERIES (DESKTOP) --- */
-  @media (min-width: 992px) {
-    padding: 100px 0;
+  .academic-gallery {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
 
-    .academic-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+    &::-webkit-scrollbar { display: none; }
 
-    .academic-header, .academic-title,
-    .academic-gallery-wrapper, .academic-gallery-title { font-size: 42px ;}
+    .academic-gallery-item {
+      flex: 0 0 100%;
+      scroll-snap-align: center;
+      background: var(--branco);
+      padding: 15px;
+      border-radius: 25px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+      display: flex;
+      flex-direction: column;
 
-    .academic-wrapper-relative {
-      padding: 0 60px;
-      margin-bottom: 50px;
+      img {
+        width: 100%;
+        aspect-ratio: 4/3;
+        border-radius: 18px;
+        object-fit: cover;
+      }
 
-      .nav-btn {
-        display: flex !important;
-        opacity: 0.2;
-        &:hover { opacity: 1;}
+      .academic-caption {
+        font-size: 14px;
+        color: var(--texto-secundario);
+        margin-top: 12px;
+        font-family: 'Montserrat', sans-serif;
       }
     }
+  }
 
-    .academic-wrapper-relative:has(.timeline-tabs) {
-      padding: 0;
-      max-width: 100%;
 
-      .nav-btn { display: none !important;}
+  /* =========================
+     DESKTOP
+  ========================== */
+
+  @media (min-width: 992px) {
+
+    padding: 100px 0;
+
+    .academic-wrapper-relative,
+    .tabs-wrapper {
+      padding: 0 60px;
+      margin-bottom: 50px;
     }
 
     .timeline-tabs {
-      padding: 10px 0;
       overflow: visible;
       justify-content: center;
-      display: flex;
-      width: 100%;
       gap: 15%;
 
       button {
         flex: 1;
-        min-width: 0;
-        justify-content: center;
       }
     }
 
     .academic-highlight-carousel {
-      gap: 24px;
-      padding: 10px 0 30px;
-      overflow-x: hidden;
+       display: flex;
+       gap: 18px;
+       overflow: hidden;
+       padding: 0;
+       margin: 0;
 
       .highlight-card-frame {
         flex: 0 0 calc((100% - 48px) / 3);
         max-width: calc((100% - 48px) / 3);
-        scroll-snap-align: start;
       }
     }
 
-    .academic-gallery{
-      gap: 24px !important;
+    .academic-gallery {
       overflow: hidden;
-      padding: 20px 2px;
+      gap: 24px;
 
       .academic-gallery-item {
-        flex: 0 0 calc((100% - 48px) / 3) !important;
-        max-width: calc((100% - 48px) / 3) !important;
-        scroll-snap-align: start;
-        height: auto;
+        flex: 0 0 calc((100% - 48px) / 3);
+        max-width: calc((100% - 48px) / 3);
 
         img {
           height: 250px;
-          object-fit: cover;
         }
       }
+    }
+
+    /* Remove setas nas tabs no desktop */
+    .tabs-wrapper .nav-btn {
+      display: none;
     }
   }
 
