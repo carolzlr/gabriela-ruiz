@@ -146,7 +146,7 @@ export class HomeComponent implements AfterViewInit {
             {
               type: 'Estágio Optativo',
               title: 'Cirurgia Cardiovascular Pediátrica',
-              desc: 'Hospital da Beneficiência Portuguesa - São Paulo/SP'
+              desc: 'Hospital da Beneficência Portuguesa - São Paulo/SP'
             },
             {
               type: 'Estágio Optativo',
