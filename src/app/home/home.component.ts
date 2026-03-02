@@ -301,10 +301,4 @@ export class HomeComponent implements AfterViewInit {
     text: 'Professora Substituta do Departamento de Cirurgia da Faculdade de Medicina - UFMG'
   },
  ];
-
-
-
-
-
-
 }
