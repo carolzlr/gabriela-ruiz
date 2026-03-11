@@ -2,7 +2,7 @@
   <div class="header-content">
     <!-- LOGO / NOME -->
     <div class="header-brand">
-      <a href="#inicio" class="brand-link">
+      <a routerLink="/pt" class="brand-link">
         <img
         src="images/elemento.png"
         alt="Gabriela Ruiz"
@@ -23,6 +23,11 @@
       <a href="#sobre" (click)="closeMenu()">Sobre</a>
       <a href="#areas" (click)="closeMenu()">Áreas de atuação</a>
       <a href="#conteudo" (click)="closeMenu()">Conhecimento</a>
+      <div class="lang-switch">
+        <a routerLink="" (click)="closeMenu()" title="Portugês"><span class="fi fi-br"></span></a>
+        <a routerLink="/en" (click)="closeMenu()" title="English"><span class="fi fi-us"></span></a>
+        <a routerLink="/es" (click)="closeMenu()" title="Español"><span class="fi fi-es"></span></a>
+      </div>
       <a href="#contato" class="nav-btn" (click)="closeMenu()">Contato</a>
     </nav>
   </div>

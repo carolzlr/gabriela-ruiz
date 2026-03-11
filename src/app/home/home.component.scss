@@ -97,6 +97,29 @@ section {
   align-items: center;
   gap: 30px;
 
+  .lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 10px;
+
+    a {
+      padding: 0 !important;
+      display: flex;
+
+      & :hover {
+        transform: scale(1.1);
+        background: transparent !important;
+      }
+    }
+
+    .flag-icon {
+      width: 22px;
+      height: auto;
+      border-radius: 2px;
+    }
+  }
+
   a {
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
@@ -230,6 +253,16 @@ section {
       transform: translateX(0);
       opacity: 1;
       pointer-events: auto;
+    }
+
+    .lang-switch {
+      order: 5;
+      margin: 10px 0;
+      gap: 20px;
+
+      .flag-icon {
+        width: 28px;
+      }
     }
 
     a {
