@@ -1,1 +1,456 @@
-<p>home-en works!</p>
+<header class="site-header">
+  <div class="header-content">
+    <!-- LOGO / NOME -->
+    <div class="header-brand">
+      <a routerLink="/pt" class="brand-link">
+        <img
+        src="images/elemento.png"
+        alt="Gabriela Ruiz"
+        class="brand-logo"
+        />
+        <span class="brand-text">Gabriela Ruiz</span>
+      </a>
+    </div>
+    <!-- BOTÃO HAMBURGUER -->
+    <button class="hamburger" [class.active]="menuOpen" (click)="toggleMenu()" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <!-- NAVEGAÇÃO -->
+    <nav class="header-nav" [class.mobile-open]="menuOpen">
+      <a href="#home" (click)="closeMenu()">Home</a>
+      <a href="#sobre" (click)="closeMenu()">About</a>
+      <a href="#areas" (click)="closeMenu()">Practice Areas</a>
+      <a href="#conteudo" (click)="closeMenu()">Insights</a>
+      <div class="lang-switch">
+        <a routerLink="" (click)="closeMenu()" title="Portuguese"><span class="fi fi-br"></span></a>
+        <a routerLink="/en" (click)="closeMenu()" title="English"><span class="fi fi-us"></span></a>
+        <a routerLink="/es" (click)="closeMenu()" title="Spanish"><span class="fi fi-es"></span></a>
+      </div>
+      <a href="#contato" class="nav-btn" (click)="closeMenu()">Contact</a>
+    </nav>
+  </div>
+</header>
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-wrapper">
+    <img src="/images/elemento.png" class="hero-element" alt="Logo de fundo">
+
+    <div class="hero-content">
+      <span class="hero-kicker">GABRIELA RUIZ</span>
+      <h1>CARDIOVASCULAR SURGEON</h1>
+      <div class="hero-divider"></div>
+      <p class="hero-phrase">
+        Caring for the heart is more than a specialty; it is a commitment to life.
+      </p>
+      <a href="#sobre" class="btn-hero-outline">LEARN MORE</a>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="about" id="sobre">
+  <div class="about-container">
+    <div class="about-photo-wrapper">
+      <img src="images/perfil.jpg" alt="Dra. Gabriela Ruiz" class="about-img" />
+    </div>
+    <div class="about-info">
+      <span class="about-subtitle">Professional Profile</span>
+      <h2 class="about-name">GABRIELA RUIZ</h2>
+      <div class="about-credentials">
+        <span class="material-symbols-outlined">stethoscope</span>
+        <div class="credentials-text">
+          <span class="role">Cardiovascular Surgeon</span>
+          <span class="docs">CRM-MG: 78.834 | RQE: 62.150</span>
+        </div>
+      </div>
+
+      <div class="about-description">
+        <p>
+          Cardiovascular Surgeon with a degree from the Hospital das Clínicas of the Federal University of Minas Gerais (UFMG).
+          Has extensive experience in high-complexity surgical procedures.
+        </p>
+        <p>
+          Currently, she serves as a Surgeon and Preceptor for the Medical Residency in Cardiovascular Surgery at HC-UFMG.
+          She is also a member of Dr. Cláudio Gelape's team, practicing at Felício Rocho, Mater Dei, and Lifecenter Hospitals.
+        </p>
+        <p>
+          Her work is driven by empathy, the application of modern techniques, and close, attentive patient care,
+          providing safety and peace of mind during delicate moments.
+        </p>
+      </div>
+      <div class="about-locations">
+        <h3 class="locations-title">Practice Locations</h3>
+        <div class="locations-grid">
+          <div class="location-item">
+            <span class="material-symbols-outlined">location_on</span>
+            <div class="location-text">
+              <strong>Orizonti Institute</strong>
+              <span>Belo Horizonte, MG - Brazil</span>
+            </div>
+          </div>
+          <div class="location-item">
+            <span class="material-symbols-outlined">location_on</span>
+            <div class="location-text">
+              <strong>Hospital das Clínicas - UFMG</strong>
+              <span>Belo Horizonte, MG - Brazil</span>
+            </div>
+          </div>
+          <div class="location-item">
+            <span class="material-symbols-outlined">location_on</span>
+            <div class="location-text">
+              <strong>Evangélico Hospital</strong>
+              <strong>Specialty Center</strong>
+              <span>Belo Horizonte, MG - Brazil</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-btn-wrapper">
+          <a href="https://wa.me/31991562728" target="_blank" class="btn-about">Saiba mais</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--FORMAÇÃO ACADÊMICA E CARREIRA -->
+<section class="academic-path" id="trajetoria">
+  <div class="academic-container">
+    <!--CABEÇALHO-->
+    <div class="academic-header">
+      <h2 class="academic-title">Trajetória Acadêmica e Profissional</h2>
+      <p class="academic-subtitle">Conheça o caminho da formação, especializações e experiências que fundamentam a atuação profissional</p>
+    </div>
+    <!--CARROSSEL DE DESTAQUES-->
+    <div class="academic-wrapper-relative">
+      <button class="nav-btn prev" (click)="carousel.scrollBy({left: -300, behavior: 'smooth'})">
+        <span class="material-symbols-outlined">chevron_left</span>
+      </button>
+      <div class="academic-highlight-carousel" #carousel>
+        <div class="highlight-card-frame" *ngFor="let h of highlights">
+          <div class="highlight-inner">
+            <span class="material-symbols-outlined highlight-icon">{{ h.icon }}</span>
+            <h4>{{ h.title }}</h4>
+            <p>{{ h.text }}</p>
+          </div>
+        </div>
+      </div>
+      <button class="nav-btn next" (click)="carousel.scrollBy({left: 300, behavior: 'smooth'})">
+        <span class="material-symbols-outlined">chevron_right</span>
+      </button>
+    </div>
+    <!--SUBTEXTO DAS TABS - ANTES DO WRAPPER DAS SETAS-->
+    <p class="academic-subtext">
+      Conheça as experiências acadêmicas e profissionais
+    </p>
+    <!--WRAPPER EXCLUSIVO DAS TABS-->
+    <div class="tabs-wrapper">
+      <button class="nav-btn prev"
+      (click)="tabs.scrollBy({left: -200, behavior: 'smooth'})">
+      <span class="material-symbols-outlined">chevron_left</span>
+      </button>
+      <nav class="timeline-tabs" #tabs>
+        <button
+          *ngFor="let group of timeline"
+          (click)="selectTimeline(group)"
+          [class.active]="group === selectedTimeline">
+          <span class="material-symbols-outlined">
+            keyboard_arrow_down
+          </span>
+          {{ group.label }}
+        </button>
+      </nav>
+      <button class="nav-btn next"
+        (click)="tabs.scrollBy({left: 200, behavior: 'smooth'})">
+        <span class="material-symbols-outlined">chevron_right</span>
+      </button>
+    </div>
+  <!-- CONTEUDO DA TAB-->
+  <div class="timeline-cards" *ngIf="selectedTimeline">
+      <article class="timeline-card"
+        *ngFor="let item of selectedTimeline.items">
+
+        <div class="timeline-card-header">
+          <h4>{{ item.title }}</h4>
+          <span class="timeline-year">{{ item.period }}</span>
+        </div>
+
+        <p class="timeline-subtitle">{{ item.subtitle }}</p>
+        <p class="timeline-desc">{{ item.desc }}</p>
+
+        <!-- EXTRAS -->
+        <div class="timeline-extras"
+          *ngIf="item.extras && item.extras.length">
+
+          <ul>
+            <li *ngFor="let extra of item.extras">
+              <span class="extra-type">{{ extra.type }}</span>
+              <strong>{{ extra.title }}</strong>
+              <p>{{ extra.desc }}</p>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </div>
+    <!-- GALERIA DE FOTOS -->
+    <div class="academic-gallery-wrapper">
+      <h2 class="academic-gallery-title">
+        Vivências que Constroem a Prática
+      </h2>
+      <p class="academic-gallery-subtitle">
+        Da formação à atuação profissional, momentos que fazem parte dessa jornada
+      </p>
+      <div class="academic-wrapper-relative">
+        <button class="nav-btn prev"
+          (click)="galeria.scrollBy({left: -380, behavior: 'smooth'})">
+          <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+        <div class="academic-gallery" #galeria>
+          <div class="academic-gallery-item">
+            <img src="images/formatura.jpg" alt="Formação acadêmica">
+            <p class="academic-caption">
+              Formação na Faculdade de Medicina - Universidade Federal de Minas Gerais (UFMG)
+            </p>
+          </div>
+          <div class="academic-gallery-item">
+            <img src="images/operando.jpg" alt="Residência médica">
+            <p class="academic-caption">
+              Residência Médica - Cirurgia Cardiovascular Hospital das Clínicas - UFMG
+            </p>
+          </div>
+          <div class="academic-gallery-item">
+            <img src="images/congresso.png" alt="Pesquisa científica">
+            <p class="academic-caption">
+              Participação em Congressos
+            </p>
+          </div>
+        </div>
+        <button class="nav-btn next"
+          (click)="galeria.scrollBy({left: 380, behavior: 'smooth'})">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS DE ATUACAO -->
+<section class="areas" id="areas">
+  <div class="areas-container">
+    <div class="areas-header">
+      <h2 class="areas-title">Áreas de Atuação</h2>
+    </div>
+    <p class="areas-text">
+      Atendimento especializado em Cirurgia Cardiovascular, com foco em diagnóstico,
+      tratamento e acompanhamento de doenças do coração e grandes vasos
+    </p>
+
+    <div class="areas-action">
+      <a href="https://wa.me/31991562728" target="_blank" class="btn-areas-contato">contato</a>
+    </div>
+
+    <div class="areas-grid">
+      <div class="areas-card" *ngFor="let area of areasAtuacao" (click)="openModal(area)">
+        <div class="card-img-wrapper">
+          <img [src]="area.img" [alt]="area.title">
+          <div class="card-overlay">
+            <span>Saiba Mais</span>
+          </div>
+        </div>
+        <h4 class="areas-sub">{{ area.title }}</h4>
+        <span class="mobile-hint">Saiba Mais</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" *ngIf="selectedArea" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="modal-close" (click)="closeModal()">&times;</button>
+
+      <div class="modal-body">
+        <img [src]="selectedArea.img" alt="">
+        <h3>{{ selectedArea.title }}</h3>
+        <p>{{ selectedArea.desc }}</p>
+        <a href="https://wa.me/31991562728" target="_blank" class="btn-modal-wpp">
+          Informações
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONHECIMENTO EM FOCO -->
+<section class="posts" id="conteudo">
+  <div class="posts-container">
+    <div class="posts-header">
+      <h2 class="posts-title">Conhecimento que Sustenta a Prática</h2>
+    </div>
+    <p class="posts-text">
+      Produção científica, conteúdos autorais e atualização profissional
+    </p>
+
+    <div class="posts-action">
+      <a href="https://www.instagram.com/bedside_medicine/" target="_blank" class="btn-posts-contato">Saiba Mais</a>
+    </div>
+
+    <div class="posts-wrapper-relative">
+      <button class="nav-btn prev" (click)="trilho.scrollBy({left: -380, behavior:'smooth'})">
+        <span class="material-symbols-outlined">chevron_left</span>
+      </button>
+      <div class="posts-grid" #trilho>
+        <!--Estrura que repete para adicionar mais posts-->
+        <a href="https://ojs.brazilianjournals.com.br/ojs/index.php/BJHR/article/view/76762/53559" target="_blank" class="post-card">
+          <div class="img-container">
+            <img src="images/anuloplastia.png" alt="Post Instagram" />
+            <div class="post-overlay">
+              <span class="btn-overlay">Texto Completo</span>
+            </div>
+          </div>
+          <span class="post-caption">Brazilian Journal of Health Review</span>
+          <div class="btn-mobile-read">Texto Completo</div>
+        </a>
+        <a href="https://journals.lww.com/sjan/fulltext/2023/17020/anaesthetic_management_of_a_patient_with_gerbode.15.aspx" target="_blank" class="post-card">
+          <div class="img-container">
+            <img src="images/gerbode.png" alt="Post Instagram" />
+            <div class="post-overlay">
+              <span class="btn-overlay">Texto Completo</span>
+            </div>
+          </div>
+          <span class="post-caption">Saudi Journal of Anesthesia</span>
+          <div class="btn-mobile-read">Texto Completo</div>
+        </a>
+        <a href="https://onlinecjc.ca/article/S0828-282X(23)01888-3/abstract" target="_blank" class="post-card">
+          <div class="img-container">
+            <img src="images/canada.png" alt="Post Instagram" />
+            <div class="post-overlay">
+              <span class="btn-overlay">Texto Completo</span>
+            </div>
+          </div>
+          <span class="post-caption">Canadian Journal of Cardiology</span>
+          <div class="btn-mobile-read">Texto Completo</div>
+        </a>
+        <a href="https://onlinelibrary.wiley.com/doi/10.1111/ctr.70409" target="_blank" class="post-card">
+          <div class="img-container">
+            <img src="images/recuperacaorenal.png" alt="Post Instagram" />
+            <div class="post-overlay">
+              <span class="btn-overlay">Texto Completo</span>
+            </div>
+          </div>
+          <span class="post-caption">Clinical Transplantation - The Journal of Clinical and Tranlational Research</span>
+          <div class="btn-mobile-read">Texto Completo</div>
+        </a>
+        <a href="https://heart.bmj.com/content/105/4/283.long" target="_blank" class="post-card">
+          <div class="img-container">
+            <img src="images/remota.png" alt="Post Instagram" />
+            <div class="post-overlay">
+              <span class="btn-overlay">Texto Completo</span>
+            </div>
+          </div>
+          <span class="post-caption">Heart</span>
+          <div class="btn-mobile-read">Texto Completo</div>
+        </a>
+        <a href="https://globalheartjournal.com/articles/10.5334/gh.529" target="_blank" class="post-card">
+          <div class="img-container">
+            <img src="images/provar.png" alt="Post Instagram" />
+            <div class="post-overlay">
+              <span class="btn-overlay">Texto Completo</span>
+            </div>
+          </div>
+          <span class="post-caption">World Heart Federation</span>
+          <div class="btn-mobile-read">Texto Completo</div>
+        </a>
+        <a href="https://bedsidemedicine.com.br/blog-post.html?id=9" target="_blank" class="post-card">
+          <div class="img-container">
+            <img src="images/pcr.png" alt="Post Instagram" />
+            <div class="post-overlay">
+              <span class="btn-overlay">Texto Completo</span>
+            </div>
+          </div>
+          <span class="post-caption">Bedside Medicine</span>
+          <div class="btn-mobile-read">Texto Completo</div>
+        </a>
+        <!--<a href="https://bedsidemedicine.com.br/blog-post.html?id=12" target="_blank" class="post-card">
+          <div class="img-container">
+            <img src="images/fibrilacao.png" alt="Post Instagram" />
+            <div class="post-overlay">
+              <span class="btn-overlay">Texto Completo</span>
+            </div>
+          </div>
+          <span class="post-caption">Fibrilação atrial após cirurgia cardíaca: como prevenir e manejar</span>
+          <div class="btn-mobile-read">Texto Completo</div>
+        </a>-->
+      </div>
+      <button class="nav-btn next" (click)="trilho.scrollBy({left: 380, behavior:'smooth'})">
+        <span class="material-symbols-outlined">chevron_right</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!--CONTATOS / MAPA SITE-->
+<section class="site-contact" id="contato">
+  <div class="site-contact-container">
+
+    <div class="site-social-icons">
+      <a href="mailto:cgrsaude8@gmail.com?subject=Contato através do Site" target="_blank" class="contact-icon-link" title="Enviar e-mail">
+        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m3.5 5.5 7.893 6.036a1 1 0 0 0 1.214 0L20.5 5.5M4 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/bedside_medicine/" target="_blank" class="contact-icon-link" title="Siga no Instagram">
+        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path fill="currentColor" fill-rule="evenodd" d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+      <a href="https://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K8560907U4&tokenCaptchar=0cAFcWeA6PdHKJJ2_WPWSzznpay9tTUrnxc4vfFrrEwnFNm25jAH-PTTZ7b7VLM-WRkE5aGxgSPwAwYpWPNdTVYaz1jGIQ5xyGGDkDVNPBXt7Feq-x4KTGaLQ8bRFP2a66V48HOIe1KXnZS6sY78eJquuGKcBwfhbI3Qc8X-Z7ayU8GNba64a9kRH23cWw-q-omD1r1BbJEbSq7wfJ_ANNPMDS84ChhMp6L2hOiS-nR6NW9nYyb4OGxs94kkt3MpERptcJX2IFD9YNixlUte-faUTJFmCwYghSIRkaowykrLzdLT2JxTraBaccQl2txUyXpeHL_noePGSlFqIT9O-FqKcTgh-YqePP7kT94YrKtPEXvlHj-MNrIe-GQT9-o6ogGnFn04632x3zu0Nzj8in1YW-B5-A7s82bmqC6CvRRatAF0IceQvK6NlFgOW3mWUbSpiUSJZYU28gFvF7zSKBVSjyLgjdStKTr_JE5pUDpqDDtfN3cwkqXdAafYKpTV65bOC4qx3oBk3r1oabBdRrenwopG89dU7KQGvNOCerjuerVDorOxGxL4i3_kCI_r1OoGV8hIvVNAxTc0DxYDD0VXT87cuX8yRPM2fFO6pfoVbIGw7t9K18MG9jBVjUhSuT04KdK3X9iKH5IRI7a1t7Yz86jRGYTAQ_zsblF8Sz6tjSF3jLQgnWNP4r7DR5wGcp0rY8QfvDZwpWfONVfWum6eB2TonzriaahgNHvCO5kSG4s_tF0vdKK5Itc5pid1LVavXR3CghGzHLBrTV2lSXXXsV5fwWexr7JAMapmXsrQLxIDfkpjKOE8corYJq6TuEWdwdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfpT9ZdKlAGyVIva4zi2H2Vlv1TU35sOOI4SBoEnSG1RkMTehIr3P0hPYdflICp953mKyNiNhYYQhLeLeDJLUs97jWvkBmYyxNJP6eeFCbhQp2F02mdOPD1G48fXdFOdFIXmfR5vniRzXbf6zFQvP91UtVnP7NpTsoU06FtpTveYcFPvAutwu0NrtP-XAINHnxHPFO_YXkJWqFxz45QJdLO-VS8R7wol3JS6a1k2lN_J8T1wl75qqtgWCK4XI1qyaBvWihwwdpCb4FZ_XPwZSAAAoLAL0g5xrSYybtxnVvEjrNNwoXx2XVFOFrWRjXIuCRuJD9gtKPuUBP4Hb9X5KRAoU5botlfyhoQqAaducMGYAFoWO2Y5E-6M7SztqhwEGiY1bTxzrinbeCscHBSA2Q_-fiYWWZHvkciJlIg6sYX7qxJgYNTEKd9_kCQaM7WIn3PBeBy2hUuR3CfID419bAOfXzDUYgNIE36ynL6U8RHD7PY4j_fxyKiBEoJNivJLftENuBMVsFJyz6r0f1H8ZN5r08c0JQDkvPQgFjJ52y9EUyyQRAd9cLG27SfSySWUMUUhy35C_HlZ3DLmVzM7Ukd0iRGSe_TZ2yDTXa1kTHF-bzfqIaVD73cEP7gjDgIM8VySTm_krzThd98ggZmonibJc9UuXnwbmUR2xDluMdnklcCIA6nthnxu7VUL5p0pbeLXiINzhfNQXv0XzSEWeJmT8RM0Yh7dbKbcBnLsDiZ-bK0djURaFhzyo9AtUOj3XOE3Q" target="_blank" class="contact-icon-link" title="Currículo Lattes">
+        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.78552 9.5 12.7855 14l9-4.5-9-4.5-8.99998 4.5Zm0 0V17m3-6v6.2222c0 .3483 2 1.7778 5.99998 1.7778 4 0 6-1.3738 6-1.7778V11"/>
+        </svg>
+      </a>
+      <a href="https://www.linkedin.com/in/gabriela-zamunaro-lopes-ruiz-50a250275/" target="_blank" class="contact-icon-link linkedin-svg" title="Linkedin">
+        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path fill-rule="evenodd" d="M12.51 8.796v1.697a3.738 3.738 0 0 1 3.288-1.684c3.455 0 4.202 2.16 4.202 4.97V19.5h-3.2v-5.072c0-1.21-.244-2.766-2.128-2.766-1.827 0-2.139 1.317-2.139 2.676V19.5h-3.19V8.796h3.168ZM7.2 6.106a1.61 1.61 0 0 1-.988 1.483 1.595 1.595 0 0 1-1.743-.348A1.607 1.607 0 0 1 5.6 4.5a1.601 1.601 0 0 1 1.6 1.606Z" clip-rule="evenodd"/>
+          <path d="M7.2 8.809H4V19.5h3.2V8.809Z"/>
+        </svg>
+      </a>
+      <a href="https://wa.me/5531991562728" target="_blank" class="contact-icon-link" title="WhatsApp">
+        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path fill="currentColor" fill-rule="evenodd" d="M12 4a8 8 0 0 0-6.895 12.06l.569.718-.697 2.359 2.32-.648.379.243A8 8 0 1 0 12 4ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.96 9.96 0 0 1-5.016-1.347l-4.948 1.382 1.426-4.829-.006-.007-.033-.055A9.958 9.958 0 0 1 2 12Z" clip-rule="evenodd"/>
+          <path fill="currentColor" d="M16.735 13.492c-.038-.018-1.497-.736-1.756-.83a1.008 1.008 0 0 0-.34-.075c-.196 0-.362.098-.49.291-.146.217-.587.732-.723.886-.018.02-.042.045-.057.045-.013 0-.239-.093-.307-.123-1.564-.68-2.751-2.313-2.914-2.589-.023-.04-.024-.057-.024-.057.005-.021.058-.074.085-.101.08-.079.166-.182.249-.283l.117-.14c.121-.14.175-.25.237-.375l.033-.066a.68.68 0 0 0-.02-.64c-.034-.069-.65-1.555-.715-1.711-.158-.377-.366-.552-.655-.552-.027 0 0 0-.112.005-.137.005-.883.104-1.213.311-.35.22-.94.924-.94 2.16 0 1.112.705 2.162 1.008 2.561l.041.06c1.161 1.695 2.608 2.951 4.074 3.537 1.412.564 2.081.63 2.461.63.16 0 .288-.013.4-.024l.072-.007c.488-.043 1.56-.599 1.804-1.276.192-.534.243-1.117.115-1.329-.088-.144-.239-.216-.43-.308Z"/>
+        </svg>
+      </a>
+    </div>
+
+
+    <div class="site-contact-brand">
+      <img src="images/submark.png" alt="Marca Gabriela Ruiz" class="site-contact-brand-img">
+    </div>
+
+    <!--<div class="site-contact-info">
+      <p class="address-main">Instituto Orizonti | Hospital Evangélico</p>
+      <p class="address-sub">Belo Horizonte - MG</p>
+    </div>-->
+
+    <nav class="site-contact-sitemap">
+      <ul class="site-contact-nav-list">
+        <li><a href="#inicio">Home</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#trajetoria">Formação</a></li>
+        <li><a href="#areas">Atuação</a></li>
+        <li><a href="#conteudo">Conhecimento</a></li>
+        <li><a href="https://wa.me/5531991562728">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© Dra. Gabriela Ruiz – Cirurgiã Cardiovascular - 2026</p>
+  <span class="footer-sep">|</span>
+  <a href="https://www.flaticon.com/free-icons/heart" title="heart icons" target="_blank">Heart icons created by Futuer - Flaticon</a>
+</footer>
+
+
+
