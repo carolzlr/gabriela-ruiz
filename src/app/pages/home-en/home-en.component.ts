@@ -1,9 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-home-en',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, RouterLink],
   templateUrl: './home-en.component.html',
   styleUrl: './home-en.component.scss'
 })
@@ -15,44 +18,44 @@ export class HomeEnComponent implements AfterViewInit {
   // Dados das áreas de atuação
   areasAtuacao = [
     {
-      title:'Cirurgia Cardiovascular',
+      title:'Cardiovascular Surgery',
       img:'images/ccv.jpg',
-      desc:'Tratamento cirúrgico de doenças do coração e grandes vasos, abrangendo procedimentos convencionais e técnicas minimamente invasivas'
+      desc:'Surgical treatment of heart and great vessel diseases, covering conventional procedures and minimally invasive techniques.'
     },
     {
-      title: 'Plastia ou Troca Valvares',
+      title: 'Valve Repair or Replacement',
       img: 'images/valva3.png',
-      desc: 'Cirurgias para reparo (plastia) ou substituição de válvulas cardíacas acometidas por estenose ou insuficiência'
+      desc: 'Surgeries to repair (plasty) or replace heart valves affected by stenosis or insufficiency.'
     },
     {
-      title: 'Revascularização do Miocárdio',
+      title: 'Coronary Artery Bypass Grafting (CABG)',
       img: 'images/revasc.jpg',
-      desc: 'Procedimento indicado para restaurar o fluxo sanguíneo ao coração em pacientes com obstruções nas artérias coronárias'
+      desc: 'Procedure indicated to restore blood flow to the heart in patients with coronary artery obstructions.'
     },
     {
-      title: 'Transplante Cardíaco',
+      title: 'Heart Transplantation',
       img: 'images/transplante1.png',
-      desc: 'Tratamento definitivo para insuficiência cardíaca avançada, realizado por equipe especializada e capacitada'
+      desc: 'Definitive treatment for advanced heart failure, performed by a specialized and highly trained team'
     },
     {
-      title: 'Aneurismas de Aorta',
+      title: 'Aortic Aneurysms',
       img: 'images/aneurisma1.jpg',
-      desc: 'Correção cirúrgica ou endovascular de dilatações na artéria aorta, visando prevenir rupturas e complicações graves'
+      desc: 'Surgical or endovascular correction of aortic artery dilations to prevent ruptures and severe complications.'
     },
     {
-      title: 'Marcapassos',
+      title: 'Pacemakers',
       img: 'images/marcapasso2.png',
-      desc: 'Implante de dispositivos eletrônicos para correção de distúrbios do ritmo cardíaco (bradicardias)'
+      desc: 'Implantation of electronic devices to correct heart rhythm disorders (bradycardia).'
     },
     {
       title: 'ECMO',
       img: 'images/ecmo1.png',
-      desc: 'Suporte de vida extracorpóreo utilizado em casos graves de falência cardíaca ou pulmonar como ponte para recuperação ou transplante'
+      desc: 'Extracorporeal membrane oxygenation life support used in severe cases of heart or lung failure as a bridge to recovery or transplant.'
     },
     {
-      title: 'Consultas Presenciais e Online',
+      title: 'In-person and Online Consultations',
       img: 'images/consulta1.jpeg',
-      desc: 'Atendimento clínico humanizado para diagnóstico, segunda opinião médica e acompanhamento pós-operatório'
+      desc: 'Compassionate clinical care for diagnosis, medical second opinions, and post-operative follow-up.'
     }
   ]
 
@@ -97,75 +100,75 @@ export class HomeEnComponent implements AfterViewInit {
   }
  }
 
- timeline: any[] = [
+timeline: any[] = [
   {
-      id: 'graduacao',
-      label: 'Graduação',
+      id: 'education',
+      label: 'Education',
       items: [
         {
-          title: 'Medicina',
-          subtitle: 'Faculdade de Medicina - UFMG',
+          title: 'MD, Medicine',
+          subtitle: 'UFMG School of Medicine',
           period: '2013 - 2018',
-          desc: 'Formação médica com sólida base clínica e cirúrgica.',
+          desc: 'Medical degree with a solid clinical and surgical foundation.',
           extras: [
             {
-              type: 'Iniciação Científica',
-              title: 'Programa de Rastreamento de Valvopatia Reumática (PROVAR)',
-              desc: 'Sob orientação dos Professores  Dr. Bruno Ramos Nascimento e Dra. Maria do Carmo Nunes, participou do rastreamento ecocardiográfico de crianças em escolas públicas de Belo Horizonte/MG. Colaborou na redação e publicação de artigos científicos, e participações em Congressos nacionais e internacionais.'
+              type: 'Scientific Initiation',
+              title: 'Rheumatic Heart Disease Screening Program (PROVAR)',
+              desc: 'Under the supervision of Prof. Dr. Bruno Ramos Nascimento and Dr. Maria do Carmo Nunes, participated in echocardiographic screening of children in public schools in Belo Horizonte/MG. Collaborated on writing and publishing scientific articles and participating in national and international congresses.'
             },
             {
-              type: 'Monitoria',
+              type: 'Teaching Assistant',
               title: '',
-              desc: 'Monitora da Disciplina de Anatomia na Faculdade de Medicina da UFMG, durante 5 anos. '
+              desc: 'Anatomy Teaching Assistant at the UFMG School of Medicine for 5 years.'
             },
             {
-              type: 'Extensão Acadêmica',
+              type: 'Academic Extension',
               title: '',
-              desc: 'Paticipou das Ligas Acadêmicas de Cardiologia, Clínica Médica, Feridas e Cirurgia.'
+              desc: 'Member of Academic Leagues in Cardiology, Internal Medicine, Wound Care, and Surgery.'
             },
             {
-              type: 'Intercâmbio',
+              type: 'International Exchange',
               title: '',
-              desc: 'Estágio Internacional em Cirurgia Cardiovascular no Norrlands Universitetssjukhus - Umeå - Suécia.'
+              desc: 'International Internship in Cardiovascular Surgery at Norrlands Universitetssjukhus - Umeå, Sweden.'
             }
           ]
         }
       ]
     },
     {
-      id: 'residencia',
-      label: 'Residência Médica',
+      id: 'residency',
+      label: 'Medical Residency',
       items: [
         {
-          title: 'Residência Médica',
-          subtitle: 'Cirurgia Cardiovascular - HC-UFMG',
+          title: 'Medical Residency',
+          subtitle: 'Cardiovascular Surgery - HC-UFMG',
           period: '2019 - 2024',
-          desc: 'Treinamento intensivo no Serviço de Cirurgia Cardiovascular',
+          desc: 'Intensive training within the Cardiovascular Surgery Service.',
           extras: [
             {
-              type: 'Estágio Optativo',
-              title: 'Cirurgia Cardiovascular Pediátrica',
+              type: 'Elective Internship',
+              title: 'Pediatric Cardiovascular Surgery',
               desc: 'Hospital da Beneficência Portuguesa - São Paulo/SP'
             },
             {
-              type: 'Estágio Optativo',
-              title: 'Cirurgia Cardiovascular Pediátrica',
+              type: 'Elective Internship',
+              title: 'Pediatric Cardiovascular Surgery',
               desc: 'Hospital da Criança - São José do Rio Preto/SP'
             },
             {
-              type: 'Estágio Optativo',
-              title: 'Transplante Cardíaco e Cirurgias Cardíacas Complexas',
+              type: 'Elective Internship',
+              title: 'Heart Transplant and Complex Cardiac Surgery',
               desc: 'Equipe Lev Cardiovascular - São Paulo/SP'
             },
             {
-              type: 'Estágio Optativo',
-              title: 'Cirurgia de Aorta e Endovascular',
+              type: 'Elective Internship',
+              title: 'Aortic and Endovascular Surgery',
               desc: 'Hospital de Clínicas - Porto Alegre/RS'
             },
             {
-              type: 'Estágio Internacional',
-              title: 'Transplante Cardíaco',
-              desc: 'Hospital Universitário de Coimbra - Portugal'
+              type: 'International Internship',
+              title: 'Heart Transplant',
+              desc: 'Coimbra University Hospital - Portugal'
             }
           ]
         }
@@ -173,37 +176,37 @@ export class HomeEnComponent implements AfterViewInit {
     },
 
     {
-      id: 'pos',
-      label: 'Pós-Graduação',
+      id: 'postgrad',
+      label: 'Postgraduate Studies',
       items: [
         {
-          title: 'Mestrado',
-          subtitle: 'Qualidade Assistencial em Transplante Cardíaco',
-          period: 'Atual',
-          desc: 'Mestrado em andamento no Programa de Pós-Graduação em Cirurgia e Oftalmologia da Faculdade de Medicina da UFMG'
+          title: "Master's Degree",
+          subtitle: 'Healthcare Quality in Heart Transplantation',
+          period: 'Ongoing',
+          desc: "Ongoing Master's in the Surgery and Ophthalmology Postgraduate Program at the UFMG School of Medicine."
         }
       ]
     },
 
     {
-      id: 'profissional',
-      label: 'Profissional',
+      id: 'professional',
+      label: 'Professional Experience',
       items: [
         {
           title: 'EBSERH',
-          subtitle: 'Cirurgiã Cardiovascular no HC-UFMG',
-          period: '2024 - Atual',
-          desc: 'Membro da Equipe de Cirurgia Cardiovascular atuando em transplantes cardíacos, dispositivos de estimulação cardíaca, transplante pulmonar, cirurgias eletivas e de urgência',
+          subtitle: 'Cardiovascular Surgeon at HC-UFMG',
+          period: '2024 - Present',
+          desc: 'Member of the Cardiovascular Surgery Team focusing on heart transplants, cardiac stimulation devices, lung transplants, and elective and emergency surgeries.',
           extras: [
             {
-              type: 'Preceptoria',
-              title: 'Residência Médica',
-              desc: 'Atuação no ensino de Médicos Residentes'
+              type: 'Preceptorship',
+              title: 'Medical Residency',
+              desc: 'Engaged in teaching and supervision of Medical Residents.'
             },
             {
-              type: 'Pesquisa Científica',
+              type: 'Scientific Research',
               title: '',
-              desc: 'Atua no grupo de Pesquisa em Cirurgia Cardiovascular, colaborando para o banco de dados do Serviço'
+              desc: 'Active member of the Cardiovascular Surgery Research Group, contributing to the institutional database.'
             }
           ]
         },
@@ -216,33 +219,33 @@ export class HomeEnComponent implements AfterViewInit {
         },
          */
         {
-          title: 'Centro de Telessaúde do Hospital das Clínicas - UFMG',
-          subtitle: 'Plantonista da Linha de Cuidados em Infarto Agudo do Miocárdio',
-          period: '2024 - Atual',
-          desc: 'Prestação de serviços de teleconsultoria para Rede de Infarto do Ministério da Saúde'
+          title: 'Telehealth Center - HC-UFMG',
+          subtitle: 'On-call Physician for Acute Myocardial Infarction Care',
+          period: '2024 - Present',
+          desc: 'Providing teleconsultation services for the Ministry of Health’s Myocardial Infarction Network.'
         },
         {
           title: 'Bedside Medicine',
-          subtitle: 'Redatora',
-          period: '2024 - Atual',
-          desc: 'Site de conteúdos educativos nas áreas de Cardiointensivismo e Cirurgia Cardiovascular'
+          subtitle: 'Editor / Medical Writer',
+          period: '2024 - Present',
+          desc: 'Educational content platform specializing in Cardiac Intensive Care and Cardiovascular Surgery.'
         },
         {
           title: 'Instituto Orizonti',
-          subtitle: 'Atendimentos Ambulatoriais em Cirurgia Cardiovascular',
-          period: '2023 - Atual',
+          subtitle: 'Outpatient Cardiovascular Surgery Consultations',
+          period: '2023 - Presentl',
           desc: ''
         },
         {
           title: 'Instituto Orizonti',
-          subtitle: 'Plantonista na Unidade Coronariana',
-          period: '2023 - Atual',
+          subtitle: 'Coronary Care Unit (CCU) On-call Physician',
+          period: '2023 - Present',
           desc: ''
         },
         {
-          title: 'Hospital Evangélico - Centro de Especialidades',
-          subtitle: 'Atendimentos Ambulatoriais em Cirurgia Cardiovascular',
-          period: '2024 - Atual',
+          title: 'Evangélico Hospital - Specialty Center',
+          subtitle: 'Outpatient Cardiovascular Surgery Consultations',
+          period: '2024 - Present',
           desc: ''
         }
       ]
@@ -263,13 +266,13 @@ export class HomeEnComponent implements AfterViewInit {
  highlights = [
   {
     icon:'school',
-    title: 'Preceptoria',
-    text: 'Atuação no Ensino de Médicos Residentes no Hospital das Clínicas (UFMG) e Hospital Felício Rocho'
+    title: 'Preceptorship',
+    text: 'Clinical teaching for Medical Residents at Hospital das Clínicas (UFMG) and Hospital Felício Rocho.'
   },
   {
     icon: 'biotech',
-    title: 'Pesquisa Científica',
-    text: 'Publicações em Revistas Científicas de impacto, apresentações em Congressos Nacionais e Internacionais'
+    title: 'Scientific Research',
+    text: 'Publications in high-impact scientific journals and presentations at National and International Congresses.'
   },
   // pode adicionar outros mais
   /**
@@ -281,23 +284,23 @@ export class HomeEnComponent implements AfterViewInit {
    */
   {
     icon: 'star_shine',
-    title: 'Especialista',
-    text: 'Título de Cirurgiã Cardiovascular certificado pela Sociedade Brasileira de Cirurgia Cardiovascular'
+    title: 'Specialist',
+    text: 'Board-certified Cardiovascular Surgeon by the Brazilian Society of Cardiovascular Surgery (SBCCV).'
   },
   {
     icon: 'volunteer_activism',
-    title: 'Trabalho Voluntário',
-    text: 'Missões humanitárias em Cirurgia Cardiovascular'
+    title: 'Volunteer Work',
+    text: 'Humanitarian missions focused on Cardiovascular Surgery.'
   },
   {
     icon: 'cardiology',
-    title: 'ACLS',
-    text: 'Instrutora certificada em Suporte Avançado de Vida em Cardiologia pela American Heart Association'
+    title: 'ACLS Instructor',
+    text: 'Certified Advanced Cardiovascular Life Support Instructor by the American Heart Association.'
   },
   {
     icon: 'school',
-    title: 'Atividade Acadêmica',
-    text: 'Professora Substituta do Departamento de Cirurgia da Faculdade de Medicina - UFMG'
+    title: 'Academic Activity',
+    text: 'Substitute Professor in the Department of Surgery at the UFMG School of Medicine.'
   },
  ];
 }

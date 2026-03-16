@@ -25,7 +25,6 @@
       <a href="#conteudo" (click)="closeMenu()">Insights</a>
       <div class="lang-switch">
         <a routerLink="" (click)="closeMenu()" title="Portuguese"><span class="fi fi-br"></span></a>
-        <a routerLink="/en" (click)="closeMenu()" title="English"><span class="fi fi-us"></span></a>
         <a routerLink="/es" (click)="closeMenu()" title="Spanish"><span class="fi fi-es"></span></a>
       </div>
       <a href="#contato" class="nav-btn" (click)="closeMenu()">Contact</a>
@@ -68,12 +67,12 @@
 
       <div class="about-description">
         <p>
-          Cardiovascular Surgeon with a degree from the Hospital das Clínicas of the Federal University of Minas Gerais (UFMG).
+          Cardiovascular Surgeon with a degree from Hospital das Clínicas of the Federal University of Minas Gerais (UFMG).
           Has extensive experience in high-complexity surgical procedures.
         </p>
         <p>
-          Currently, she serves as a Surgeon and Preceptor for the Medical Residency in Cardiovascular Surgery at HC-UFMG.
-          She is also a member of Dr. Cláudio Gelape's team, practicing at Felício Rocho, Mater Dei, and Lifecenter Hospitals.
+          Currently, serves as Surgeon and Preceptor for the Medical Residency in Cardiovascular Surgery at HC-UFMG.
+          Is also a member of Dr. Cláudio Gelape's team, practicing at Felício Rocho, Mater Dei, and Lifecenter Hospitals.
         </p>
         <p>
           Her work is driven by empathy, the application of modern techniques, and close, attentive patient care,
@@ -107,7 +106,7 @@
           </div>
         </div>
         <div class="about-btn-wrapper">
-          <a href="https://wa.me/31991562728" target="_blank" class="btn-about">Saiba mais</a>
+          <a href="https://wa.me/31991562728" target="_blank" class="btn-about">Learn More</a>
         </div>
       </div>
     </div>
@@ -120,8 +119,8 @@
   <div class="academic-container">
     <!--CABEÇALHO-->
     <div class="academic-header">
-      <h2 class="academic-title">Trajetória Acadêmica e Profissional</h2>
-      <p class="academic-subtitle">Conheça o caminho da formação, especializações e experiências que fundamentam a atuação profissional</p>
+      <h2 class="academic-title">Academic and Professional Journey</h2>
+      <p class="academic-subtitle">Explore the education, specializations, and experiences that form the foundation of her professional practice</p>
     </div>
     <!--CARROSSEL DE DESTAQUES-->
     <div class="academic-wrapper-relative">
@@ -143,7 +142,7 @@
     </div>
     <!--SUBTEXTO DAS TABS - ANTES DO WRAPPER DAS SETAS-->
     <p class="academic-subtext">
-      Conheça as experiências acadêmicas e profissionais
+      Discover her academic and professional journey
     </p>
     <!--WRAPPER EXCLUSIVO DAS TABS-->
     <div class="tabs-wrapper">
@@ -197,10 +196,10 @@
     <!-- GALERIA DE FOTOS -->
     <div class="academic-gallery-wrapper">
       <h2 class="academic-gallery-title">
-        Vivências que Constroem a Prática
+        Experiences that Shape Practice
       </h2>
       <p class="academic-gallery-subtitle">
-        Da formação à atuação profissional, momentos que fazem parte dessa jornada
+        From education to professional practice, moments that define this journey
       </p>
       <div class="academic-wrapper-relative">
         <button class="nav-btn prev"
@@ -211,19 +210,19 @@
           <div class="academic-gallery-item">
             <img src="images/formatura.jpg" alt="Formação acadêmica">
             <p class="academic-caption">
-              Formação na Faculdade de Medicina - Universidade Federal de Minas Gerais (UFMG)
+              Medical Degree - Federal University of Minas Gerais (UFMG) School of Medicine
             </p>
           </div>
           <div class="academic-gallery-item">
             <img src="images/operando.jpg" alt="Residência médica">
             <p class="academic-caption">
-              Residência Médica - Cirurgia Cardiovascular Hospital das Clínicas - UFMG
+              Medical Residency - Cardiovascular Surgery at Hospital das Clínicas - UFMG
             </p>
           </div>
           <div class="academic-gallery-item">
             <img src="images/congresso.png" alt="Pesquisa científica">
             <p class="academic-caption">
-              Participação em Congressos
+              Attendance at Medical Congresses
             </p>
           </div>
         </div>
@@ -240,15 +239,15 @@
 <section class="areas" id="areas">
   <div class="areas-container">
     <div class="areas-header">
-      <h2 class="areas-title">Áreas de Atuação</h2>
+      <h2 class="areas-title">Practice Areas</h2>
     </div>
     <p class="areas-text">
-      Atendimento especializado em Cirurgia Cardiovascular, com foco em diagnóstico,
-      tratamento e acompanhamento de doenças do coração e grandes vasos
+      Specialized care in Cardiovascular Surgery, focusing on the diagnosis,
+      treatment, and follow-up of diseases of the heart and great vessels
     </p>
 
     <div class="areas-action">
-      <a href="https://wa.me/31991562728" target="_blank" class="btn-areas-contato">contato</a>
+      <a href="https://wa.me/31991562728" target="_blank" class="btn-areas-contato">contact</a>
     </div>
 
     <div class="areas-grid">
@@ -256,11 +255,11 @@
         <div class="card-img-wrapper">
           <img [src]="area.img" [alt]="area.title">
           <div class="card-overlay">
-            <span>Saiba Mais</span>
+            <span>Learn More</span>
           </div>
         </div>
         <h4 class="areas-sub">{{ area.title }}</h4>
-        <span class="mobile-hint">Saiba Mais</span>
+        <span class="mobile-hint">Learn More</span>
       </div>
     </div>
   </div>
@@ -274,7 +273,7 @@
         <h3>{{ selectedArea.title }}</h3>
         <p>{{ selectedArea.desc }}</p>
         <a href="https://wa.me/31991562728" target="_blank" class="btn-modal-wpp">
-          Informações
+          More Information
         </a>
       </div>
     </div>
@@ -285,14 +284,14 @@
 <section class="posts" id="conteudo">
   <div class="posts-container">
     <div class="posts-header">
-      <h2 class="posts-title">Conhecimento que Sustenta a Prática</h2>
+      <h2 class="posts-title">Knowledge that Sustains Practice</h2>
     </div>
     <p class="posts-text">
-      Produção científica, conteúdos autorais e atualização profissional
+      Scientific production, original content, and professional updates
     </p>
 
     <div class="posts-action">
-      <a href="https://www.instagram.com/bedside_medicine/" target="_blank" class="btn-posts-contato">Saiba Mais</a>
+      <a href="https://www.instagram.com/bedside_medicine/" target="_blank" class="btn-posts-contato">Learn More</a>
     </div>
 
     <div class="posts-wrapper-relative">
@@ -305,71 +304,71 @@
           <div class="img-container">
             <img src="images/anuloplastia.png" alt="Post Instagram" />
             <div class="post-overlay">
-              <span class="btn-overlay">Texto Completo</span>
+              <span class="btn-overlay">Full Text</span>
             </div>
           </div>
           <span class="post-caption">Brazilian Journal of Health Review</span>
-          <div class="btn-mobile-read">Texto Completo</div>
+          <div class="btn-mobile-read">Full Text</div>
         </a>
         <a href="https://journals.lww.com/sjan/fulltext/2023/17020/anaesthetic_management_of_a_patient_with_gerbode.15.aspx" target="_blank" class="post-card">
           <div class="img-container">
             <img src="images/gerbode.png" alt="Post Instagram" />
             <div class="post-overlay">
-              <span class="btn-overlay">Texto Completo</span>
+              <span class="btn-overlay">Full Text</span>
             </div>
           </div>
           <span class="post-caption">Saudi Journal of Anesthesia</span>
-          <div class="btn-mobile-read">Texto Completo</div>
+          <div class="btn-mobile-read">Full Text</div>
         </a>
         <a href="https://onlinecjc.ca/article/S0828-282X(23)01888-3/abstract" target="_blank" class="post-card">
           <div class="img-container">
             <img src="images/canada.png" alt="Post Instagram" />
             <div class="post-overlay">
-              <span class="btn-overlay">Texto Completo</span>
+              <span class="btn-overlay">Full Text</span>
             </div>
           </div>
           <span class="post-caption">Canadian Journal of Cardiology</span>
-          <div class="btn-mobile-read">Texto Completo</div>
+          <div class="btn-mobile-read">Full Text</div>
         </a>
         <a href="https://onlinelibrary.wiley.com/doi/10.1111/ctr.70409" target="_blank" class="post-card">
           <div class="img-container">
             <img src="images/recuperacaorenal.png" alt="Post Instagram" />
             <div class="post-overlay">
-              <span class="btn-overlay">Texto Completo</span>
+              <span class="btn-overlay">Full Text</span>
             </div>
           </div>
           <span class="post-caption">Clinical Transplantation - The Journal of Clinical and Tranlational Research</span>
-          <div class="btn-mobile-read">Texto Completo</div>
+          <div class="btn-mobile-read">Full Text</div>
         </a>
         <a href="https://heart.bmj.com/content/105/4/283.long" target="_blank" class="post-card">
           <div class="img-container">
             <img src="images/remota.png" alt="Post Instagram" />
             <div class="post-overlay">
-              <span class="btn-overlay">Texto Completo</span>
+              <span class="btn-overlay">Full Text</span>
             </div>
           </div>
           <span class="post-caption">Heart</span>
-          <div class="btn-mobile-read">Texto Completo</div>
+          <div class="btn-mobile-read">Full Text</div>
         </a>
         <a href="https://globalheartjournal.com/articles/10.5334/gh.529" target="_blank" class="post-card">
           <div class="img-container">
             <img src="images/provar.png" alt="Post Instagram" />
             <div class="post-overlay">
-              <span class="btn-overlay">Texto Completo</span>
+              <span class="btn-overlay">Full Text</span>
             </div>
           </div>
           <span class="post-caption">World Heart Federation</span>
-          <div class="btn-mobile-read">Texto Completo</div>
+          <div class="btn-mobile-read">Full Text</div>
         </a>
         <a href="https://bedsidemedicine.com.br/blog-post.html?id=9" target="_blank" class="post-card">
           <div class="img-container">
             <img src="images/pcr.png" alt="Post Instagram" />
             <div class="post-overlay">
-              <span class="btn-overlay">Texto Completo</span>
+              <span class="btn-overlay">Full Text</span>
             </div>
           </div>
           <span class="post-caption">Bedside Medicine</span>
-          <div class="btn-mobile-read">Texto Completo</div>
+          <div class="btn-mobile-read">Full Text</div>
         </a>
         <!--<a href="https://bedsidemedicine.com.br/blog-post.html?id=12" target="_blank" class="post-card">
           <div class="img-container">
@@ -436,18 +435,18 @@
     <nav class="site-contact-sitemap">
       <ul class="site-contact-nav-list">
         <li><a href="#inicio">Home</a></li>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#trajetoria">Formação</a></li>
-        <li><a href="#areas">Atuação</a></li>
-        <li><a href="#conteudo">Conhecimento</a></li>
-        <li><a href="https://wa.me/5531991562728">Contato</a></li>
+        <li><a href="#sobre">About</a></li>
+        <li><a href="#trajetoria">Education</a></li>
+        <li><a href="#areas">Practice</a></li>
+        <li><a href="#conteudo">Insight</a></li>
+        <li><a href="https://wa.me/5531991562728">Contact</a></li>
       </ul>
     </nav>
   </div>
 </section>
 
 <footer class="footer">
-  <p>© Dra. Gabriela Ruiz – Cirurgiã Cardiovascular - 2026</p>
+  <p>© Dra. Gabriela Ruiz – Cardiovascular Surgeon - 2026</p>
   <span class="footer-sep">|</span>
   <a href="https://www.flaticon.com/free-icons/heart" title="heart icons" target="_blank">Heart icons created by Futuer - Flaticon</a>
 </footer>
