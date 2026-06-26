@@ -180,10 +180,16 @@ timeline: any[] = [
       label: 'Postgraduate Studies',
       items: [
         {
-          title: "Master's Degree",
-          subtitle: 'Healthcare Quality in Heart Transplantation',
-          period: 'Ongoing',
-          desc: "Ongoing Master's in the Surgery and Ophthalmology Postgraduate Program at the UFMG School of Medicine."
+          title: 'Master’s Degree',
+          subtitle: 'Analysis of Mortality According to the Phase of Care in Heart Transplantation',
+          period: 'Completed',
+          desc: "Master's Degree in Surgery and Ophthalmology from the UFMG School of Medicine, obtained in May 2026"
+        },
+        {
+          title: 'PhD',
+          subtitle: 'Quality of Care in Heart Transplantation',
+          period: 'Current',
+          desc: 'PhD candidate in the Graduate Program in Surgery and Ophthalmology at the UFMG School of Medicine'
         }
       ]
     },

@@ -1,1 +1,426 @@
-<p>home-es works!</p>
+<header class="site-header">
+  <div class="header-content">
+    <!-- LOGO / NOMBRE -->
+    <div class="header-brand">
+      <a routerLink="/es" class="brand-link">
+        <img
+        src="images/elemento.png"
+        alt="Gabriela Ruiz"
+        class="brand-logo"
+        />
+        <span class="brand-text">Gabriela Ruiz</span>
+      </a>
+    </div>
+    <!-- BOTÓN HAMBURGUESA -->
+    <button class="hamburger" [class.active]="menuOpen" (click)="toggleMenu()" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <!-- NAVEGACIÓN -->
+    <nav class="header-nav" [class.mobile-open]="menuOpen">
+      <a href="#home" (click)="closeMenu()">Home</a>
+      <a href="#sobre" (click)="closeMenu()">Sobre mí</a>
+      <a href="#areas" (click)="closeMenu()">Áreas de especialización</a>
+      <a href="#conteudo" (click)="closeMenu()">Conocimiento</a>
+      <div class="lang-switch">
+        <a routerLink="/en" (click)="closeMenu()" title="English"><span class="fi fi-us"></span></a>
+        <a routerLink="" (click)="closeMenu()" title="Português"><span class="fi fi-br"></span></a>
+      </div>
+      <a href="#contato" class="nav-btn" (click)="closeMenu()">Contacto</a>
+    </nav>
+  </div>
+</header>
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-wrapper">
+    <img src="/images/elemento.png" class="hero-element" alt="Logo de fondo">
+
+    <div class="hero-content">
+      <span class="hero-kicker">GABRIELA RUIZ</span>
+      <h1>CIRUJANA CARDIOVASCULAR</h1>
+      <div class="hero-divider"></div>
+      <p class="hero-phrase">
+        Cuidar el corazón es más que una especialidad, es un compromiso con la vida.
+      </p>
+      <a href="#sobre" class="btn-hero-outline">MÁS INFORMACIÓN</a>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE MÍ -->
+<section class="about" id="sobre">
+  <div class="about-container">
+    <div class="about-photo-wrapper">
+      <img src="images/perfil.jpg" alt="Dra. Gabriela Ruiz" class="about-img" />
+    </div>
+    <div class="about-info">
+      <span class="about-subtitle">Sobre la profesional</span>
+      <h2 class="about-name">GABRIELA RUIZ</h2>
+      <div class="about-credentials">
+        <span class="material-symbols-outlined">stethoscope</span>
+        <div class="credentials-text">
+          <span class="role">Cirujana Cardiovascular</span>
+          <span class="docs">CRM-MG: 78.834 | RQE: 62.150</span>
+        </div>
+      </div>
+
+      <div class="about-description">
+        <p>
+          Médica Cirujana Cardiovascular graduada en el Hospital de Clínicas de la Universidad Federal de Minas Gerais (UFMG).
+          Posee amplia experiencia en procedimientos de alta complejidad.
+        </p>
+        <p>
+          Actualmente, se desempeña como Cirujana y Preceptora de la Residencia Médica en Cirugía Cardiovascular en el HC-UFMG.
+          También integra el equipo del Dr. Cláudio Gelape, ejerciendo en los Hospitales Felício Rocho, Mater Dei y Lifecenter.
+        </p>
+        <p>
+          Su trabajo se basa en la empatía, la aplicación de técnicas modernas y un seguimiento cercano y atento,
+          ofreciendo seguridad y tranquilidad a los pacientes en momentos delicados.
+        </p>
+      </div>
+      <div class="about-locations">
+        <h3 class="locations-title">Lugares de Atención</h3>
+        <div class="locations-grid">
+          <div class="location-item">
+            <span class="material-symbols-outlined">location_on</span>
+            <div class="location-text">
+              <strong>Instituto Orizonti</strong>
+              <span>Belo Horizonte, MG</span>
+            </div>
+          </div>
+          <div class="location-item">
+            <span class="material-symbols-outlined">location_on</span>
+            <div class="location-text">
+              <strong>Hospital de Clínicas - UFMG</strong>
+              <span>Belo Horizonte, MG</span>
+            </div>
+          </div>
+          <div class="location-item">
+            <span class="material-symbols-outlined">location_on</span>
+            <div class="location-text">
+              <strong>Hospital Evangélico</strong>
+              <strong>Centro de Especialidades</strong>
+              <span>Belo Horizonte, MG</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-btn-wrapper">
+          <a href="https://wa.me/31991562728" target="_blank" class="btn-about">Más información</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--TRAYECTORIA ACADÉMICA Y CARRERA -->
+<section class="academic-path" id="trajetoria">
+  <div class="academic-container">
+    <!--CABECERA-->
+    <div class="academic-header">
+      <h2 class="academic-title">Trayectoria Académica y Profesional</h2>
+      <p class="academic-subtitle">Conozca el camino de formación, especializaciones y experiencias que fundamentan la práctica profesional</p>
+    </div>
+    <!--CARRUSEL DE DESTACADOS-->
+    <div class="academic-wrapper-relative">
+      <button class="nav-btn prev" (click)="carousel.scrollBy({left: -300, behavior: 'smooth'})">
+        <span class="material-symbols-outlined">chevron_left</span>
+      </button>
+      <div class="academic-highlight-carousel" #carousel>
+        <div class="highlight-card-frame" *ngFor="let h of highlights">
+          <div class="highlight-inner">
+            <span class="material-symbols-outlined highlight-icon">{{ h.icon }}</span>
+            <h4>{{ h.title }}</h4>
+            <p>{{ h.text }}</p>
+          </div>
+        </div>
+      </div>
+      <button class="nav-btn next" (click)="carousel.scrollBy({left: 300, behavior: 'smooth'})">
+        <span class="material-symbols-outlined">chevron_right</span>
+      </button>
+    </div>
+    <!--SUBTEXTO DE LAS PESTAÑAS-->
+    <p class="academic-subtext">
+      Conozca las experiencias académicas y profesionales
+    </p>
+    <!--WRAPPER EXCLUSIVO DE LAS PESTAÑAS-->
+    <div class="tabs-wrapper">
+      <button class="nav-btn prev"
+      (click)="tabs.scrollBy({left: -200, behavior: 'smooth'})">
+      <span class="material-symbols-outlined">chevron_left</span>
+      </button>
+      <nav class="timeline-tabs" #tabs>
+        <button
+          *ngFor="let group of timeline"
+          (click)="selectTimeline(group)"
+          [class.active]="group === selectedTimeline">
+          <span class="material-symbols-outlined">
+            keyboard_arrow_down
+          </span>
+          {{ group.label }}
+        </button>
+      </nav>
+      <button class="nav-btn next"
+        (click)="tabs.scrollBy({left: 200, behavior: 'smooth'})">
+        <span class="material-symbols-outlined">chevron_right</span>
+      </button>
+    </div>
+  <!-- CONTENIDO DE LA PESTAÑA-->
+  <div class="timeline-cards" *ngIf="selectedTimeline">
+      <article class="timeline-card"
+        *ngFor="let item of selectedTimeline.items">
+
+        <div class="timeline-card-header">
+          <h4>{{ item.title }}</h4>
+          <span class="timeline-year">{{ item.period }}</span>
+        </div>
+
+        <p class="timeline-subtitle">{{ item.subtitle }}</p>
+        <p class="timeline-desc">{{ item.desc }}</p>
+
+        <!-- EXTRAS -->
+        <div class="timeline-extras"
+          *ngIf="item.extras && item.extras.length">
+
+          <ul>
+            <li *ngFor="let extra of item.extras">
+              <span class="extra-type">{{ extra.type }}</span>
+              <strong>{{ extra.title }}</strong>
+              <p>{{ extra.desc }}</p>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </div>
+    <!-- GALERÍA DE FOTOS -->
+    <div class="academic-gallery-wrapper">
+      <h2 class="academic-gallery-title">
+        Experiencias que Construyen la Práctica
+      </h2>
+      <p class="academic-gallery-subtitle">
+        Desde la formación hasta la práctica profesional, momentos que forman parte de este camino
+      </p>
+      <div class="academic-wrapper-relative">
+        <button class="nav-btn prev"
+          (click)="galeria.scrollBy({left: -380, behavior: 'smooth'})">
+          <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+        <div class="academic-gallery" #galeria>
+          <div class="academic-gallery-item">
+            <img src="images/formatura.jpg" alt="Formación académica">
+            <p class="academic-caption">
+              Formación en la Facultad de Medicina - Universidad Federal de Minas Gerais (UFMG)
+            </p>
+          </div>
+          <div class="academic-gallery-item">
+            <img src="images/operando.jpg" alt="Residencia médica">
+            <p class="academic-caption">
+              Residencia Médica - Cirugía Cardiovascular Hospital de Clínicas - UFMG
+            </p>
+          </div>
+          <div class="academic-gallery-item">
+            <img src="images/congresso.png" alt="Investigación científica">
+            <p class="academic-caption">
+              Participación en Congresos
+            </p>
+          </div>
+        </div>
+        <button class="nav-btn next"
+          (click)="galeria.scrollBy({left: 380, behavior: 'smooth'})">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREAS DE ESPECIALIZACIÓN -->
+<section class="areas" id="areas">
+  <div class="areas-container">
+    <div class="areas-header">
+      <h2 class="areas-title">Áreas de Especialización</h2>
+    </div>
+    <p class="areas-text">
+      Atención especializada en Cirugía Cardiovascular, con enfoque en diagnóstico,
+      tratamiento y seguimiento de enfermedades del corazón y grandes vasos
+    </p>
+
+    <div class="areas-action">
+      <a href="https://wa.me/31991562728" target="_blank" class="btn-areas-contato">contacto</a>
+    </div>
+
+    <div class="areas-grid">
+      <div class="areas-card" *ngFor="let area of areasAtuacao" (click)="openModal(area)">
+        <div class="card-img-wrapper">
+          <img [src]="area.img" [alt]="area.title">
+          <div class="card-overlay">
+            <span>Más información</span>
+          </div>
+        </div>
+        <h4 class="areas-sub">{{ area.title }}</h4>
+        <span class="mobile-hint">Más información</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" *ngIf="selectedArea" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="modal-close" (click)="closeModal()">&times;</button>
+
+      <div class="modal-body">
+        <img [src]="selectedArea.img" alt="">
+        <h3>{{ selectedArea.title }}</h3>
+        <p>{{ selectedArea.desc }}</p>
+        <a href="https://wa.me/31991562728" target="_blank" class="btn-modal-wpp">
+          Información
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENFOQUE EN EL CONOCIMIENTO -->
+<section class="posts" id="conteudo">
+  <div class="posts-container">
+    <div class="posts-header">
+      <h2 class="posts-title">Conocimiento que Sustenta la Prática</h2>
+    </div>
+    <p class="posts-text">
+      Producción científica, contenidos de autoría propia y actualización profesional
+    </p>
+
+    <div class="posts-action">
+      <a href="https://www.instagram.com/bedside_medicine/" target="_blank" class="btn-posts-contato">Más información</a>
+    </div>
+
+    <div class="posts-wrapper-relative">
+      <button class="nav-btn prev" (click)="trilho.scrollBy({left: -380, behavior:'smooth'})">
+        <span class="material-symbols-outlined">chevron_left</span>
+      </button>
+      <div class="posts-grid" #trilho>
+        <!-- Estructura que se repite para añadir más posts -->
+        <a href="https://ojs.brazilianjournals.com.br/ojs/index.php/BJHR/article/view/76762/53559" target="_blank" class="post-card">
+          <div class="img-container">
+            <img src="images/anuloplastia.png" alt="Post Instagram" />
+            <div class="post-overlay">
+              <span class="btn-overlay">Texto Completo</span>
+            </div>
+          </div>
+          <span class="post-caption">Brazilian Journal of Health Review</span>
+          <div class="btn-mobile-read">Texto Completo</div>
+        </a>
+        <a href="https://journals.lww.com/sjan/fulltext/2023/17020/anaesthetic_management_of_a_patient_with_gerbode.15.aspx" target="_blank" class="post-card">
+          <div class="img-container">
+            <img src="images/gerbode.png" alt="Post Instagram" />
+            <div class="post-overlay">
+              <span class="btn-overlay">Texto Completo</span>
+            </div>
+          </div>
+          <span class="post-caption">Saudi Journal of Anesthesia</span>
+          <div class="btn-mobile-read">Texto Completo</div>
+        </a>
+        <a href="https://onlinecjc.ca/article/S0828-282X(23)01888-3/abstract" target="_blank" class="post-card">
+          <div class="img-container">
+            <img src="images/canada.png" alt="Post Instagram" />
+            <div class="post-overlay">
+              <span class="btn-overlay">Texto Completo</span>
+            </div>
+          </div>
+          <span class="post-caption">Canadian Journal of Cardiology</span>
+          <div class="btn-mobile-read">Texto Completo</div>
+        </a>
+        <a href="https://onlinelibrary.wiley.com/doi/10.1111/ctr.70409" target="_blank" class="post-card">
+          <div class="img-container">
+            <img src="images/recuperacaorenal.png" alt="Post Instagram" />
+            <div class="post-overlay">
+              <span class="btn-overlay">Texto Completo</span>
+            </div>
+          </div>
+          <span class="post-caption">Clinical Transplantation - The Journal of Clinical and Tranlational Research</span>
+          <div class="btn-mobile-read">Texto Completo</div>
+        </a>
+        <a href="https://heart.bmj.com/content/105/4/283.long" target="_blank" class="post-card">
+          <div class="img-container">
+            <img src="images/remota.png" alt="Post Instagram" />
+            <div class="post-overlay">
+              <span class="btn-overlay">Texto Completo</span>
+            </div>
+          </div>
+          <span class="post-caption">Heart</span>
+          <div class="btn-mobile-read">Texto Completo</div>
+        </a>
+        <a href="https://globalheartjournal.com/articles/10.5334/gh.529" target="_blank" class="post-card">
+          <div class="img-container">
+            <img src="images/provar.png" alt="Post Instagram" />
+            <div class="post-overlay">
+              <span class="btn-overlay">Texto Completo</span>
+            </div>
+          </div>
+          <span class="post-caption">World Heart Federation</span>
+          <div class="btn-mobile-read">Texto Completo</div>
+        </a>
+        <a href="https://bedsidemedicine.com.br/blog-post.html?id=9" target="_blank" class="post-card">
+          <div class="img-container">
+            <img src="images/pcr.png" alt="Post Instagram" />
+            <div class="post-overlay">
+              <span class="btn-overlay">Texto Completo</span>
+            </div>
+          </div>
+          <span class="post-caption">Bedside Medicine</span>
+          <div class="btn-mobile-read">Texto Completo</div>
+        </a>
+      </div>
+      <button class="nav-btn next" (click)="trilho.scrollBy({left: 380, behavior:'smooth'})">
+        <span class="material-symbols-outlined">chevron_right</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!--CONTACTOS / MAPA DEL SITIO-->
+<section class="site-contact" id="contato">
+  <div class="site-contact-container">
+
+    <div class="site-social-icons">
+      <a href="mailto:cgrsaude8@gmail.com?subject=Contacto a través del Sitio" target="_blank" class="contact-icon-link" title="Enviar correo electrónico">
+        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m3.5 5.5 7.893 6.036a1 1 0 0 0 1.214 0L20.5 5.5M4 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/bedside_medicine/" target="_blank" class="contact-icon-link" title="Siga en Instagram">
+        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path fill-rule="evenodd" d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+      <a href="https://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K8560907U4&tokenCaptchar=0cAFcWeA6PdHKJJ2_WPWSzznpay9tTUrnxc4vfFrrEwnFNm25jAH-PTTZ7b7VLM-WRkE5aGxgSPwAwYpWPNdTVYaz1jGIQ5xyGGDkDVNPBXt7Feq-x4KTGaLQ8bRFP2a66V48HOIe1KXnZS6sY78eJquuGKcBwfhbI3Qc8X-Z7ayU8GNba64a9kRH23cWw-q-omD1r1BbJEbSq7wfJ_ANNPMDS84ChhMp6L2hOiS-nR6NW9nYyb4OGxs94kkt3MpERptcJX2IFD9YNixlUte-faUTJFmCwYghSIRkaowykrLzdLT2JxTraBaccQl2txUyXpeHL_noePGSlFqIT9O-FqKcTgh-YqePP7kT94YrKtPEXvlHj-MNrIe-GQT9-o6ogGnFn04632x3zu0Nzj8in1YW-B5-A7s82bmqC6CvRRatAF0IceQvK6NlFgOW3mWUbSpiUSJZYU28gFvF7zSKBVSjyLgjdStKTr_JE5pUDpqDDtfN3cwkqXdAafYKpTV65bOC4qx3oBk3r1oabBdRrenwopG89dU7KQGvNOCerjuerVDorOxGxL4i3_kCI_r1OoGV8hIvVNAxTc0DxYDD0VXT87cuX8yRPM2fFO6pfoVbIGw7t9K18MG9jBVjUhSuT04KdK3X9iKH5IRI7a1t7Yz86jRGYTAQ_zsblF8Sz6tjSF3jLQgnWNP4r7DR5wGcp0rY8QfvDZwpWfONVfWum6eB2TonzriaahgNHvCO5kSG4s_tF0vdKK5Itc5pid1LVavXR3CghGzHLBrTV2lSXXXsV5fwWexr7JAMapmXsrQLxIDfkpjKOE8corYJq6TuEWdwdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rK4JfKbIrv35m_a_lUdbLHtGLOwhFZrqbq7i_IIhT6mQScskf8FIcOvkklsYjxnvsA-a-kUdKtAPKGuF9DauvoMiPnKhuw6slGShgkrspyw1yU5otJctAApgCCsUevUhS-U4FXhrW7R8jYbNGnYmsg_BmTnw8m5dwZZcM3ZYz2cjpx8gBusx3pr4J-5PFM2vEk7y3frXt0AVwIdHBZy_eX4mJPRvs4Tlc9O-Nwh3pqXsdgdfTonaYhwI-zfjpQn5GO3ypgdXDYYxrXz003NOahidAfeU4u-WUARwMPKtonXkrOY4cdFPMrZ8GsMa1qySyicOxX8-1JVR4l6yctS74tS5RmuKAJMynz5sSSVFSeS9zXwgXDPPYGZewdmopQT5HimTZuEczK-BRwN1aFQH4RI2uaJVTKJGfYKE5kF_APZ9fJidhxquELXEMUjplt_D7v0nNh9fAyf5qkXeLKBLxSqoupnBbYkQqBvwXwEVD0DXZV7JYst8Cv74KBsRCPLUuzMCXMlmHXMOl_LLvg0PNxQZq2rKIII=" target="_blank" class="contact-icon-link">
+        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path fill="currentColor" fill-rule="evenodd" d="M12 4a8 8 0 0 0-6.895 12.06l.569.718-.697 2.359 2.32-.648.379.243A8 8 0 1 0 12 4ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.96 9.96 0 0 1-5.016-1.347l-4.948 1.382 1.426-4.829-.006-.007-.033-.055A9.958 9.958 0 0 1 2 12Z" clip-rule="evenodd"/>
+          <path fill="currentColor" d="M16.735 13.492c-.038-.018-1.497-.736-1.756-.83a1.008 1.008 0 0 0-.34-.075c-.196 0-.362.098-.49.291-.146.217-.587.732-.723.886-.018.02-.042.045-.057.045-.013 0-.239-.093-.307-.123-1.564-.68-2.751-2.313-2.914-2.589-.023-.04-.024-.057-.024-.057.005-.021.058-.074.085-.101.08-.079.166-.182.249-.283l.117-.14c.121-.14.175-.25.237-.375l.033-.066a.68.68 0 0 0-.02-.64c-.034-.069-.65-1.555-.715-1.711-.158-.377-.366-.552-.655-.552-.027 0 0 0-.112.005-.137.005-.883.104-1.213.311-.35.22-.94.924-.94 2.16 0 1.112.705 2.162 1.008 2.561l.041.06c1.161 1.695 2.608 2.951 4.074 3.537 1.412.564 2.081.63 2.461.63.16 0 .288-.013.4-.024l.072-.007c.488-.043 1.56-.599 1.804-1.276.192-.534.243-1.117.115-1.329-.088-.144-.239-.216-.43-.308Z"/>
+        </svg>
+      </a>
+    </div>
+
+
+    <div class="site-contact-brand">
+      <img src="images/submark.png" alt="Marca Gabriela Ruiz" class="site-contact-brand-img">
+    </div>
+
+    <nav class="site-contact-sitemap">
+      <ul class="site-contact-nav-list">
+        <li><a href="#inicio">Home</a></li>
+        <li><a href="#sobre">Sobre mí</a></li>
+        <li><a href="#trajetoria">Formación</a></li>
+        <li><a href="#areas">Especialización</a></li>
+        <li><a href="#conteudo">Conocimiento</a></li>
+        <li><a href="https://wa.me/5531991562728">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© Dra. Gabriela Ruiz – Cirujana Cardiovascular - 2026</p>
+  <span class="footer-sep">|</span>
+  <a href="https://www.flaticon.com/free-icons/heart" title="heart icons" target="_blank">Heart icons created by Futuer - Flaticon</a>
+</footer>

@@ -180,9 +180,15 @@ export class HomeComponent implements AfterViewInit {
       items: [
         {
           title: 'Mestrado',
+          subtitle: 'Análise de Óbitos de Acordo Com a Fase De Cuidado em Transplante Cardíaco',
+          period: 'Concluído',
+          desc: 'Título de Mestre em Cirurgia e Oftalmologia pela Faculdade de Medicina da UFMG, obtido em Maio de 2026'
+        },
+        {
+          title: 'Doutorado',
           subtitle: 'Qualidade Assistencial em Transplante Cardíaco',
           period: 'Atual',
-          desc: 'Mestrado em andamento no Programa de Pós-Graduação em Cirurgia e Oftalmologia da Faculdade de Medicina da UFMG'
+          desc: 'Doutorado em andamento no Programa de Pós-Graduação em Cirurgia e Oftalmologia da Faculdade de Medicina da UFMG'
         }
       ]
     },
